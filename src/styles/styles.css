@@ -26,3 +26,71 @@ h2 {
     width: 70%;
 }
 
+.header {
+    padding: 30px;
+    text-align: center;
+    background: #175fdb;
+    color: white;
+  }
+
+.buttons{
+    display: inline;
+}
+
+.search{
+    background-color: #e8e9eb;
+    padding: 80px;
+
+}
+
+.items{
+    width: 80%;
+    margin: 5rem auto 5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+  
+  .flights-area {
+    width:70%;
+    margin: 5rem auto 5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .flightTitle{
+    margin-left: 14rem;
+    font-size: 25px;
+    }
+
+  .flight-block {
+    width: 15rem;
+    height: 30rem;
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.star{
+    color:yellow;
+}
+
+.title{
+    color:#175fdb;
+    text-align: center;
+    margin-top: 0%;
+    font-size: 30px;
+}
+
+.searchBar{
+    margin: auto;
+    display: flex;
+    width: 70%;
+    border: 3px solid lightgray;
+    padding: 15px;
+}
+
