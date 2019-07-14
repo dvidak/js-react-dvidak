@@ -15,6 +15,8 @@ export function RegisterForm() {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(name);
+    console.log(name[0]);
+    console.log(name[1]);
     console.log(email);
     console.log(password);
     console.log(passwordconf);
@@ -76,7 +78,7 @@ export function RegisterForm() {
            onChange={e => setPasswordConf(e.target.value)}
 
            required/>
-    <button type="submit" className="btn">Sign Up</button>
+    <button type="submit" className="btn">Register</button>
     </div>
     </form>
   );

@@ -53,10 +53,17 @@ export function LoginForm() {
                placeholder="Password" 
                onChange={e => setPassword(e.target.value)}
                required/>
-        <button type="submit" className="btn">Login</button>
+        
+        <div className="text">
+          <input type="checkbox" id="rememberMe" name="rememberMe"/>
+          <label>Remember me</label>
+        </div>
 
-        <p> Don't have an account?</p>
-        <a href="/register"> Register here</a>
+        <button type="submit" className="btn">Login</button>
+        <div className="text">
+          <b> <p> Don't have an account?</p></b>
+          <b> <a className="blueTxt" href="/register"> Register here</a></b>
+        </div>
         </div>
         </form>
   )
