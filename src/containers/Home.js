@@ -3,6 +3,7 @@ import { Header } from '../components/Header/Header';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { Flights } from '../components/Flights/Flights';
 
+
 export function Home() {
   return (
     <div>

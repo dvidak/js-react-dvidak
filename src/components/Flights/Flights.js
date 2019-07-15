@@ -3,33 +3,18 @@ import { useAsync } from 'react-use';
 import { appState } from '../../state/AppState';
 import { observer } from 'mobx-react';
 import { FlightBlock } from '../FlightBlock/FlightBlock';
+import { loadFlights } from '../../services/flights';
+
 import styles from './Flights.module.css';
 
-
-function loadFlights() {
-  return fetch('https://flighter-hw5.herokuapp.com/api/flights')
-    .then((response) => response.json())
-    .then((response) => response.flights)
-    .then((flights) => {appState.flights.replace(flights)
-    });
-}
-
-export function FlightsComponent() {
-    const { loading: value } = useAsync(loadFlights);
-    const [filter, setFilter] = React.useState('');
-
-
-    function onFilterChange(e) {
-      setFilter(e.target.value);
-      appState.flightsFilter = e.target.value;
-    }
-  
+function FlightsComponent() {
+    useAsync(loadFlights.bind(null, appState));
 
     return (
         <div>
         <p className={styles.flightTitle}>RESULTS</p>
         <div className={styles.flightsArea}>
-        {appState.flights && appState.flights.map(f => {
+        {appState.filteredFlights.map(f => {
           return (
             <FlightBlock
                 key = {f.id}
