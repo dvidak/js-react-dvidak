@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Redirect } from "react-router-dom";
-
+import styles from './Forms.module.css';
 
 
 export function RegisterForm() {  
@@ -8,19 +8,13 @@ export function RegisterForm() {
 	const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordconf, setPasswordConf] = useState('')
-  const [reg, setReg] = useState(false)
+  const [registered, setRegistered] = useState(false)
 
 
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(name);
-    console.log(name[0]);
-    console.log(name[1]);
-    console.log(email);
-    console.log(password);
-    console.log(passwordconf);
-
+   
     if(password === passwordconf){
     fetch("https://flighter-hw7.herokuapp.com/api/users", {
       method: 'POST',
@@ -39,7 +33,7 @@ export function RegisterForm() {
     }).then(res => res.json())
     .then(res => {
         if(res.user){
-          setReg(true);
+          setRegistered(true);
           alert("Success! Please login in!")
         }else{
           alert("Error! Please try again!")
@@ -53,9 +47,9 @@ export function RegisterForm() {
 
   return (
     <form onSubmit = {handleSubmit}>
-    { reg && <Redirect to="/login"></Redirect>}
+    { registered && <Redirect to="/login"></Redirect>}
 
-    <div className="regWrapper">
+    <div className={styles.wrapper}>
     <h2>Register</h2>
     <input type="text" 
            value= {name}
@@ -76,9 +70,9 @@ export function RegisterForm() {
            value={passwordconf}
            placeholder="Confirm password"
            onChange={e => setPasswordConf(e.target.value)}
-
            required/>
-    <button type="submit" className="btn">Register</button>
+    <button type="submit" 
+            className={styles.btn}>Register</button>
     </div>
     </form>
   );

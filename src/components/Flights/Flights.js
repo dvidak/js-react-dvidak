@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAsync } from 'react-use';
-import { FlightBlock } from './FlightBlock';
+import { FlightBlock } from '../FlightBlock/FlightBlock';
+import styles from './Flights.module.css';
 
 
 export function Flights() {
@@ -16,11 +17,12 @@ export function Flights() {
 
     return (
         <div>
-        <p className="flightTitle">RESULTS</p>
-        <div className="flights-area">
+        <p className={styles.flightTitle}>RESULTS</p>
+        <div className={styles.flightsArea}>
         {value && value.flights && value.flights.map(f => {
           return (
             <FlightBlock
+                key = {f.id}
                 name={f.name}
                 flys_at={f.flys_at}
                 lands_at={f.lands_at}

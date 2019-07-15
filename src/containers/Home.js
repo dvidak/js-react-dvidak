@@ -1,8 +1,7 @@
 import React from 'react';
-import { Header } from '../components/Header';
-import { SearchBar } from '../components/SearchBar';
-import { Flights } from '../components/Flights';
-import { FlightBlock } from '../components/FlightBlock';
+import { Header } from '../components/Header/Header';
+import { SearchBar } from '../components/SearchBar/SearchBar';
+import { Flights } from '../components/Flights/Flights';
 
 export function Home() {
   return (

@@ -1,0 +1,21 @@
+.flightBlock {
+    width: 15rem;
+    height: 25rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.star{
+    color:yellow;
+}
+
+.greyTxt{
+    color:#b8bcc2;
+}
+
+.blueTxt{
+    color: #175fdb;
+}
