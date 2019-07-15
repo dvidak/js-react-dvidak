@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SearchBar.module.css'
 
-export function SearchBar() {
+export function SearchBar() {       
   return (
       <div className={styles.search}>
        <b><p className={styles.title}>Find best flight for you and your friends!</p></b>
