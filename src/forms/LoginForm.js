@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Redirect } from "react-router-dom";
 import styles from './Forms.module.css';
+import {login} from '../services/auth';
 
 
 export function LoginForm() {
@@ -11,31 +12,12 @@ export function LoginForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    fetch("https://flighter-hw7.herokuapp.com/api/session", {
-      method: 'POST',
-      body: JSON.stringify({
-        session : {
-          email: email,
-          password: password,
-        }
-      }),
-      headers:{
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      }
-    }).then(res => res.json())
-      .then(response => {
-        if(response.session){
-          localStorage.setItem("token", response.session.token);
-          setLoggedIn(true);
-        }else{
-          alert("Error! Please try again!")
-        }        
-    }).catch(error =>{ 
-      console.error('Error:', error)
-      alert("Error!");
-      });
+    const session = {};
+    session.email = email;
+    session.password = password;
+    console.log("ono što šaljem")
+    login(session)
+    setLoggedIn(true);
   }
 
   return (
@@ -67,8 +49,8 @@ export function LoginForm() {
         </button>
         <div className={styles.text}>
           <p> Don't have an account?</p>
-          <b><a className={styles.blueTxt} 
-                href="/register"> Register here </a></b>
+          <p><a className={styles.blueTxt} 
+                href="/register"> Register here </a></p>
         </div>
         </div>
         </form>

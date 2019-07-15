@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Redirect } from "react-router-dom";
 import styles from './Forms.module.css';
+import {register} from '../services/auth';
+
 
 
 export function RegisterForm() {  
@@ -14,36 +16,18 @@ export function RegisterForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-   
     if(password === passwordconf){
-    fetch("https://flighter-hw7.herokuapp.com/api/users", {
-      method: 'POST',
-      body: JSON.stringify({
-        user : {
-          email: email,
-          first_name: name,
-          last_name: name,
-          password: password,
-        }
-      }),
-      headers:{
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      }
-    }).then(res => res.json())
-    .then(res => {
-        if(res.user){
-          setRegistered(true);
-          alert("Success! Please login in!")
-        }else{
-          alert("Error! Please try again!")
-        }
-        console.log(res.user.id);
-    }).catch(error => console.error('Error:', error));
-}else{
-  alert("Password and confirm password does not match!")
-}
-}
+        const user = {}
+        user.email = email;
+        user.first_name = name;
+        user.last_name = name;
+        user.password = password;
+        register(user)
+        setRegistered(true);
+    } else{
+     alert("Password and confirm password does not match!")
+    }
+  }
 
   return (
     <form onSubmit = {handleSubmit}>
