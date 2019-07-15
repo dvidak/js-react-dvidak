@@ -3,13 +3,13 @@ import { useAsync } from 'react-use';
 import { appState } from '../../state/AppState';
 import { observer } from 'mobx-react';
 import { FlightBlock } from '../FlightBlock/FlightBlock';
-import { loadFlights } from '../../services/flights';
-
+import { loadFlights, getFlight } from '../../services/flights';
 import styles from './Flights.module.css';
 
 function FlightsComponent() {
     useAsync(loadFlights.bind(null, appState));
 
+  
     return (
         <div>
         <p className={styles.flightTitle}>RESULTS</p>

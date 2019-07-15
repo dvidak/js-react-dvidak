@@ -2,12 +2,14 @@ import React, {useState} from 'react';
 import { Redirect } from "react-router-dom";
 import styles from './Forms.module.css';
 import {login} from '../services/auth';
+import { appState } from '../state/AppState';
 
 
 export function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false)
+
+  console.log(appState.token);
 
 
   const handleSubmit = e => {
@@ -15,14 +17,12 @@ export function LoginForm() {
     const session = {};
     session.email = email;
     session.password = password;
-    console.log("ono što šaljem")
     login(session)
-    setLoggedIn(true);
   }
 
   return (
         <form onSubmit = {handleSubmit}>
-        { loggedIn && <Redirect to="/profile"></Redirect>}
+        { appState.token && <Redirect to="/profile"></Redirect>}
 
         <div className={styles.wrapper}>
         <h2>Login</h2>

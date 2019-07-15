@@ -6,6 +6,7 @@ export function login(session) {
     return post('session',body)
         .then((response) => {
             if(response.session){
+                console.log("postavljam token");
                 localStorage.setItem("token", response.session.token);
             }else{
                 console.log(response);

@@ -6,9 +6,10 @@ export function get(model) {
 
 
 export function post(model, body){
+    console.log(model)
     console.log("unutar posta sam primio")
     console.log(body);
-    return fetch(`https://flighter-hw5.herokuapp.com/api/${model}`,{
+    return fetch(`https://flighter-hw7.herokuapp.com/api/${model}`,{
         method: 'POST',
         body: body,
         headers:{

@@ -2,6 +2,7 @@ import {observable, decorate, computed, autorun} from 'mobx';
 
 class AppState{
     flights = [];
+    token = localStorage.getItem('token') || '';
     flightFilter = localStorage.getItem('flightFilter') || '';
 
     get filteredFlights() {
@@ -15,6 +16,7 @@ class AppState{
 
 decorate (AppState, {
     flights: observable,
+    token: observable,
     flightFilter: observable,
     filteredFlights: computed,
 });

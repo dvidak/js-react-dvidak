@@ -5,3 +5,9 @@ export function loadFlights(appState) {
     .then((response) => response.flights)
     .then((flights) => (appState.flights = flights));
 }
+
+
+export function getFlight(id) {
+    return get(`flights/${id}`)
+      .then((response) => response.flight)
+  }

@@ -2,8 +2,10 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import styles from './FlightBlock.module.css';
+import { observer } from 'mobx-react';
 
-export function FlightBlock(props) {
+
+export function FlightBlockComponent(props) {
   let date = new Date(props.flys_at);
   let hours=date.getHours();
   let min=date.getMinutes();
@@ -27,3 +29,5 @@ export function FlightBlock(props) {
     </div>
   );
 };
+
+export const FlightBlock = observer (FlightBlockComponent)
