@@ -3,7 +3,7 @@ import { useAsync } from 'react-use';
 import { appState } from '../../state/AppState';
 import { observer } from 'mobx-react';
 import { FlightBlock } from '../FlightBlock/FlightBlock';
-import { loadFlights, getFlight } from '../../services/flights';
+import { loadFlights } from '../../services/flights';
 import styles from './Flights.module.css';
 
 function FlightsComponent() {
