@@ -11,7 +11,7 @@ export function AppRouter() {
     <Router>
       <Route exact path="/" component={Home}/>
       <Route path="/login" component={Login}/>
-      <Route path="/flight" component={FlightPage}/>
+      <Route path="/flight/:id" component={FlightPage}/>
       <Route path="/register" component={Register}/>
       <PrivateRoute path="/profile" component={Profile}/>
     </Router>

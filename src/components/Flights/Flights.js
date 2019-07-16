@@ -18,6 +18,7 @@ function FlightsComponent() {
           return (
             <FlightBlock
                 key = {f.id}
+                id = {f.id}
                 name={f.name}
                 flys_at={f.flys_at}
                 lands_at={f.lands_at}

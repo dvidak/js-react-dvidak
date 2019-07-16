@@ -6,11 +6,11 @@ export function login(session) {
     return post('session',body)
         .then((response) => {
             if(response.session){
-                console.log("postavljam token");
-                localStorage.setItem("token", response.session.token);
+                localStorage.setItem('token', response.session.token);
+                localStorage.setItem('username',response.session.username)
             }else{
                 console.log(response);
-                alert("Error! Please try again!")
+                alert('Error! Please try again!')
             }        
         }).catch(error =>{ 
                 alert("Error!");
@@ -29,4 +29,8 @@ export function register(user){
             }
         console.log(response.user.id);
         }).catch(error => console.error('Error:', error));
+}
+
+export function logout(){
+    localStorage.removeItem('token');
 }

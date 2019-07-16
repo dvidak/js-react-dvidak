@@ -1,25 +1,25 @@
 import React, {useState} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
+
 import { Link } from 'react-router-dom'
 import styles from './FlightBlock.module.css';
 import { observer } from 'mobx-react';
+import { Flight } from '../Flight/Flight';
 
 
 export function FlightBlockComponent(props) {
-  const [redirect,setRedirect] = useState(false);
+  const [id,setId] = useState('');
   let date = new Date(props.flys_at);
   let hours=date.getHours();
   let min=date.getMinutes();
 
-
-  function toggle(){
-    setRedirect(true);
-  }
- 
-
   return (
     <div className={styles.flightBlock}>
+        <Link to={`/flight/${props.id}`}>
+        <FontAwesomeIcon icon={faAngleDoubleDown} />
+
+        </Link>
         <div>
         <img    src={require('../../img/preuzmi.png')} 
                 height="250" 
