@@ -6,8 +6,10 @@ export function login(session) {
     return post('session',body)
         .then((response) => {
             if(response.session){
+                console.log(response.session)
+                console.log(response.session.user.email);
                 localStorage.setItem('token', response.session.token);
-                localStorage.setItem('username',response.session.username)
+                localStorage.setItem('username',response.session.user.email);
             }else{
                 console.log(response);
                 alert('Error! Please try again!')
