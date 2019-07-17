@@ -4,6 +4,7 @@ class AppState{
     flights = [];
     token = localStorage.getItem('token') || '';
     flightFilter = localStorage.getItem('flightFilter') || '';
+    id = 6;
 
     get filteredFlights() {
         return this.flights
@@ -18,6 +19,7 @@ decorate (AppState, {
     flights: observable,
     token: observable,
     flightFilter: observable,
+    id: observable,
     filteredFlights: computed,
 });
 

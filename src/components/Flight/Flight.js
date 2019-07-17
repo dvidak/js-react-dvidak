@@ -1,42 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styles from './Flight.module.css'
 import { getFlight } from '../../services/flights';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { appState } from '../../state/AppState';
+import { observer } from 'mobx-react';
 import { faTv, faWifi, faBabyCarriage , faUtensilSpoon } from '@fortawesome/free-solid-svg-icons';
 
-function loadFlight() {
-    getFlight(6).then(r => console.log(r));
-  }
 
-export function Flight() {
-  const { loading, value } = useState(loadFlight);
-  console.log(value);
-  console.log(loading);
+export function FlightComponent(props) {
+  const [ flight, setFlight ] = useState({});
+
+  let dateFlysAt = new Date(flight.flys_at);
+  let hoursFlysAt=dateFlysAt.getHours();
+  let minFlysAt=dateFlysAt.getMinutes();
+
+  let dateLandsAt = new Date(flight.lands_at);
+  let hoursLandsAt=dateLandsAt.getHours();
+  let minLandsAt=dateLandsAt.getMinutes();
+
+  
+  useEffect( () => {
+    getFlight(appState.id).then( (r) => setFlight(r));
+  })
+  
+
   return ( 
       <div>
         <div className={styles.wrapper}>
           <div className={styles.left}>
-            <h2 > Ovo je naslov </h2>
-            <div class={styles.contextWrapper}>
+            <h2 > {flight.name} </h2>
+            <div className={styles.contextWrapper}>
                 <div className={styles.leftContext}>
                     <p className={styles.txt}>Company</p>
                     <p className={styles.txt}>Available seats</p>
-                    <p className={styles.greyTxt}>Company</p>
-                    <p className={styles.greyTxt}>Available seats</p>
+                    <p className={styles.greyTxt}> {flight.company_name}</p>
+                    <p className={styles.greyTxt}>{flight.no_of_seats} </p>
                     <p className={styles.txt}>Deparst at</p>
                     <p className={styles.txt}>Lands at</p>
-                    <p className={styles.greyTxt}>Deparst at</p>
-                    <p className={styles.greyTxt}>Lands at</p>
+                    <p className={styles.greyTxt}>{hoursFlysAt}:{minFlysAt}</p>
+                    <p className={styles.greyTxt}>{hoursFlysAt}:{minFlysAt}</p>
                     <p className={styles.txt}>Base price</p>
                     <p className={styles.txt}>Current price</p>
-                    <p className={styles.greyTxt}>Base price</p>
-                    <p className={styles.greyTxt}>Current price</p>
+                    <p className={styles.greyTxt}>{flight.base_price}</p>
+                    <p className={styles.greyTxt}>{flight.current_price}</p>
                 </div>
             </div>
             <button className={styles.btn}>Book now</button>
           </div>
           <div className={styles.right}>
-          <div class={styles.rightContextWrapper}>
+          <div className={styles.rightContextWrapper}>
                 <div className={styles.inner1}>
                     <img src={require('../../img/preuzmi.png')} 
                          height="200" 
@@ -54,3 +66,6 @@ export function Flight() {
     </div>
   );
 };
+
+
+export const Flight = observer (FlightComponent)
