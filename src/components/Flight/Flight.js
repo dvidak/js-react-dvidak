@@ -9,6 +9,8 @@ import { faTv, faWifi, faBabyCarriage , faUtensilSpoon } from '@fortawesome/free
 
 export function FlightComponent(props) {
   const [ flight, setFlight ] = useState({});
+  const [ companyName, setCompanyName ] = useState('');
+
 
   let dateFlysAt = new Date(flight.flys_at);
   let hoursFlysAt=dateFlysAt.getHours();
@@ -20,7 +22,10 @@ export function FlightComponent(props) {
 
   
   useEffect( () => {
-    getFlight(appState.id).then( (r) => setFlight(r));
+    getFlight(appState.id).then( (r) => {
+      setFlight(r)
+      setCompanyName(r.company.name)
+    });
   })
   
 
@@ -33,7 +38,7 @@ export function FlightComponent(props) {
                 <div className={styles.leftContext}>
                     <p className={styles.txt}>Company</p>
                     <p className={styles.txt}>Available seats</p>
-                    <p className={styles.greyTxt}> {flight.company_name}</p>
+                    <p className={styles.greyTxt}> {companyName}</p>
                     <p className={styles.greyTxt}>{flight.no_of_seats} </p>
                     <p className={styles.txt}>Deparst at</p>
                     <p className={styles.txt}>Lands at</p>
@@ -41,8 +46,8 @@ export function FlightComponent(props) {
                     <p className={styles.greyTxt}>{hoursFlysAt}:{minFlysAt}</p>
                     <p className={styles.txt}>Base price</p>
                     <p className={styles.txt}>Current price</p>
-                    <p className={styles.greyTxt}>{flight.base_price}</p>
-                    <p className={styles.greyTxt}>{flight.current_price}</p>
+                    <p className={styles.greyTxt}>{flight.base_price} $</p>
+                    <p className={styles.greyTxt}>{flight.base_price - 150} $</p>
                 </div>
             </div>
             <button className={styles.btn}>Book now</button>
