@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './Header.module.css'
 import { logout } from '../../services/auth';
+import { observer } from 'mobx-react';
 
-export function HeaderLoggedIn() {
+
+function HeaderLoggedInComponent() {
   return (
       <div className={styles.header}>
         <div className={styles.buttons}>
@@ -14,3 +16,5 @@ export function HeaderLoggedIn() {
       </div>
   );
 };
+
+export const HeaderLoggedIn = observer (HeaderLoggedInComponent)
