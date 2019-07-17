@@ -3,13 +3,14 @@ import { Redirect } from "react-router-dom";
 import styles from './Forms.module.css';
 import {login} from '../services/auth';
 import { appState } from '../state/AppState';
+import { observer } from 'mobx-react';
 
 
-export function LoginForm() {
+
+function LoginFormComponent() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  console.log(appState.token);
+  const [loggedIn, setLoggedIn] = useState(false)
 
 
   const handleSubmit = e => {
@@ -17,12 +18,13 @@ export function LoginForm() {
     const session = {};
     session.email = email;
     session.password = password;
-    login(session)
+    login(session).then(setLoggedIn(true));
+  
   }
 
   return (
         <form onSubmit = {handleSubmit}>
-        { appState.token && <Redirect to="/profile"></Redirect>}
+        { loggedIn && <Redirect to="/profile"></Redirect>}
 
         <div className={styles.wrapper}>
         <h2>Login</h2>
@@ -56,3 +58,5 @@ export function LoginForm() {
         </form>
   )
 };
+
+export const LoginForm = observer (LoginFormComponent)

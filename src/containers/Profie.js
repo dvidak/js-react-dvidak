@@ -1,7 +1,7 @@
 import React from 'react';
-import { appState } from '../state/AppState';
+import { observer } from 'mobx-react';
 
-export function Profile() {
+export function ProfilePageContainer() {
 
   return (
     <div>
@@ -9,3 +9,5 @@ export function Profile() {
     </div>
   );
 };
+
+export const Profile = observer (ProfilePageContainer)

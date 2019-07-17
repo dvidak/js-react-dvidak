@@ -1,4 +1,5 @@
 import { post } from '../services/api';
+import { appState } from '../state/AppState';
 
 export function login(session) {
     console.log(session);
@@ -6,10 +7,12 @@ export function login(session) {
     return post('session',body)
         .then((response) => {
             if(response.session){
-                console.log(response.session)
-                console.log(response.session.user.email);
+                let token = response.session.token
+                appState.token = token;
                 localStorage.setItem('token', response.session.token);
-                localStorage.setItem('username',response.session.user.email);
+                let str = response.session.user.email;
+                localStorage.setItem('username', str.substring(0, str.lastIndexOf("@")));
+                
             }else{
                 console.log(response);
                 alert('Error! Please try again!')
@@ -35,4 +38,6 @@ export function register(user){
 
 export function logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
+
 }

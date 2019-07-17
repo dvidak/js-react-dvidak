@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { Redirect } from "react-router-dom";
 import styles from './Forms.module.css';
 import {register} from '../services/auth';
+import { observer } from 'mobx-react';
+import { appState } from '../state/AppState';
 
 
-
-export function RegisterForm() {  
+function RegisterFormComponent() {  
   const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -61,4 +62,7 @@ export function RegisterForm() {
     </form>
   );
 }
+
+export const RegisterForm = observer (RegisterFormComponent)
+
 
