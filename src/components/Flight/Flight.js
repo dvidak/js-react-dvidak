@@ -6,7 +6,6 @@ import { appState } from '../../state/AppState';
 import { observer } from 'mobx-react';
 import { faTv, faWifi, faBabyCarriage , faUtensilSpoon } from '@fortawesome/free-solid-svg-icons';
 
-
 export function FlightComponent(props) {
   const [ flight, setFlight ] = useState({});
   const [ companyName, setCompanyName ] = useState('');
@@ -15,10 +14,17 @@ export function FlightComponent(props) {
   let dateFlysAt = new Date(flight.flys_at);
   let hoursFlysAt=dateFlysAt.getHours();
   let minFlysAt=dateFlysAt.getMinutes();
+  let dayFlaysAt = dateFlysAt.getDay();
+  let monthFlaysAt = dateFlysAt.getMonth();
+  let yearFlaysAt = dateFlysAt.getFullYear();
+
 
   let dateLandsAt = new Date(flight.lands_at);
   let hoursLandsAt=dateLandsAt.getHours();
   let minLandsAt=dateLandsAt.getMinutes();
+  let dayLandsAt = dateLandsAt.getDate();
+  let monthLandsAt = dateLandsAt.getMonth();
+  let yearLandAt = dateLandsAt.getFullYear();
 
   
   useEffect( () => {
@@ -42,8 +48,8 @@ export function FlightComponent(props) {
                     <p className={styles.greyTxt}>{flight.no_of_seats} </p>
                     <p className={styles.txt}>Deparst at</p>
                     <p className={styles.txt}>Lands at</p>
-                    <p className={styles.greyTxt}>{hoursFlysAt}:{minFlysAt}</p>
-                    <p className={styles.greyTxt}>{hoursFlysAt}:{minFlysAt}</p>
+                    <p className={styles.greyTxt}>{dayFlaysAt}.{monthFlaysAt}.{yearFlaysAt}. {hoursFlysAt}:{minFlysAt}</p>
+                    <p className={styles.greyTxt}>{dayLandsAt}.{monthLandsAt}.{yearLandAt}. {hoursLandsAt}:{minLandsAt}</p>
                     <p className={styles.txt}>Base price</p>
                     <p className={styles.txt}>Current price</p>
                     <p className={styles.greyTxt}>{flight.base_price} $</p>

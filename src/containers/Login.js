@@ -7,7 +7,7 @@ import { appState } from '../state/AppState';
 
 export function LoginPageContainer() {
   return (
-    appState.token ? <Profile/> : <LoginForm/>
+    localStorage.getItem('token') ? <Profile/> : <LoginForm/>
   );
 };
 

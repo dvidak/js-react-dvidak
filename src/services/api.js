@@ -1,7 +1,14 @@
     
 export function get(model) {
-    return fetch(`https://flighter-hw5.herokuapp.com/api/${model}`)
-      .then((response) => response.json());
+    return fetch(`https://flighter-hw5.herokuapp.com/api/${model}`,{
+        method: 'GET',
+        headers :{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem('token')
+        }
+    })
+    .then((response) => response.json());
 }
 
 

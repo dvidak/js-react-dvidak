@@ -9,7 +9,7 @@ import { appState } from '../state/AppState';
 function FlightPageContainer() {
   return (
     <div>
-     {appState.token ? <HeaderLoggedIn/> : <Header/> }
+     {localStorage.getItem('token') ? <HeaderLoggedIn/> : <Header/> }
      <Flight/>
     </div>
   );

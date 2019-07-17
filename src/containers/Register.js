@@ -7,7 +7,7 @@ import { appState } from '../state/AppState';
 
 export function RegisterPageContainer() {
   return (
-    appState.token ? <Profile/> : <RegisterForm/>
+    localStorage.getItem('token') ? <Profile/> : <RegisterForm/>
   );
 };
 

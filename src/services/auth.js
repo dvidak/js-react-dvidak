@@ -1,5 +1,4 @@
 import { post } from '../services/api';
-import { appState } from '../state/AppState';
 
 export function login(session) {
     console.log(session);
@@ -7,8 +6,6 @@ export function login(session) {
     return post('session',body)
         .then((response) => {
             if(response.session){
-                let token = response.session.token
-                appState.token = token;
                 localStorage.setItem('token', response.session.token);
                 let str = response.session.user.email;
                 localStorage.setItem('username', str.substring(0, str.lastIndexOf("@")));

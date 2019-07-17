@@ -11,7 +11,7 @@ import { appState } from '../state/AppState';
 export function HomePageContainer() {
   return (
     <div>
-        {appState.token ? <HeaderLoggedIn/> : <Header/> }
+        {localStorage.getItem('token') ? <HeaderLoggedIn/> : <Header/> }
         <SearchBar/>
         <Flights/>
     </div>

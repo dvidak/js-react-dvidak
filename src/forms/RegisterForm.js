@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 import styles from './Forms.module.css';
 import {register} from '../services/auth';
 import { observer } from 'mobx-react';
-import { appState } from '../state/AppState';
 
 
 function RegisterFormComponent() {  
