@@ -19,9 +19,11 @@ export function FlightBlockComponent(props) {
 
   return (
     <div className={styles.flightBlock}>
-        <Link to={`/flight/${props.id}`} onClick={setStateId}>
-        <FontAwesomeIcon icon={faAngleDoubleDown} />
-        </Link>
+        <div className={styles.meni}>
+          <Link to={`/flight/${props.id}`} onClick={setStateId}>
+          <FontAwesomeIcon icon={faAngleDoubleDown} />
+          </Link>
+        </div>
         <div>
         <img    src={require('../../img/preuzmi.png')} 
                 height="250" 
@@ -35,7 +37,7 @@ export function FlightBlockComponent(props) {
                <FontAwesomeIcon className={styles.star} icon={faStar} />
                <span className={styles.greyTxt}>  |  {props.no_of_seats} tickets available </span>
             </p>
-            <b>Price <span className={styles.blueTxt}>{props.base_price}$</span></b>
+            <b>Price <span className={styles.blueTxt}>{props.base_price} $</span></b>
         </div>
     </div>
   );

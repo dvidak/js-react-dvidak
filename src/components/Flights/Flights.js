@@ -12,7 +12,7 @@ function FlightsComponent() {
   
     return (
         <div>
-        <p className={styles.flightTitle}>RESULTS</p>
+        <p className={styles.flightTitle}></p>
         <div className={styles.flightsArea}>
         {appState.filteredFlights.map(f => {
           return (
