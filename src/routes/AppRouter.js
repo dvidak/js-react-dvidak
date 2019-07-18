@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import {Home} from '../containers/Home';
 import { Login } from '../containers/Login';
 import { Register } from '../containers/Register';
-import { Profile } from '../containers/Profie';
+import { Profile } from '../containers/Profile';
 import { FlightPage } from '../containers/FlightPage';
 
 export function AppRouter() {

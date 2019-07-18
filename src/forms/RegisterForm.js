@@ -1,58 +1,32 @@
-import React, { useState } from 'react'
-import { Redirect } from "react-router-dom";
+import React  from 'react'
 import styles from './Forms.module.css';
 import { observer } from 'mobx-react';
 
 
 function RegisterFormComponent(props) {  
-  const [name, setName] = useState('')
-	const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordconf, setPasswordConf] = useState('')
-  const [registered, setRegistered] = useState(false)
-
-
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if(password === passwordconf){
-        const user = {}
-        user.email = email;
-        user.first_name = name;
-        user.last_name = name;
-        user.password = password;
-        props.register(user)
-        setRegistered(true);
-    } else{
-     alert("Password and confirm password does not match!")
-    }
-  }
-
   return (
-    <form onSubmit = {handleSubmit}>
-    { registered && <Redirect to="/login"></Redirect>}
-
+    <form onSubmit = {props.handleSubmit}>
     <div className={styles.wrapper}>
     <h2>Register</h2>
     <input type="text" 
-           value= {name}
+           value= {props.name}
            placeholder="Full name" 
-           onChange={e => setName(e.target.value)}
+           onChange={e => props.setName(e.target.value)}
            required/>
     <input type="text" 
            placeholder="Username" 
-           value={email}
-           onChange={e => setEmail(e.target.value)}
+           value={props.email}
+           onChange={e => props.setEmail(e.target.value)}
            required/>
     <input type="password" 
-           value={password}
+           value={props.password}
            placeholder="Password" 
-           onChange={e => setPassword(e.target.value)}
+           onChange={e => props.setPassword(e.target.value)}
            required/>
     <input type="password" 
-           value={passwordconf}
+           value={props.passwordconf}
            placeholder="Confirm password"
-           onChange={e => setPasswordConf(e.target.value)}
+           onChange={e => props.setPasswordConf(e.target.value)}
            required/>
     <button type="submit" 
             className={styles.btn}>Register</button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-export function ProfilePageContainer() {
+function ProfilePageContainer() {
 
   return (
     <div>

@@ -12,7 +12,7 @@ import { logout } from '../services/auth';
 
 
 
-export function HomePageContainer() {
+function HomePageContainer() {
   useAsync(loadFlights.bind(null, appState));
 
   function onFilterChange(e) {

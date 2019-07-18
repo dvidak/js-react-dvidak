@@ -1,39 +1,21 @@
-import React, {useState} from 'react';
-import { Redirect } from "react-router-dom";
+import React from 'react';
 import styles from './Forms.module.css';
 import { observer } from 'mobx-react';
 
 function LoginFormComponent(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false)
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const session = {};
-    session.email = email;
-    session.password = password;
-    props.login(session).then( () => {
-          setLoggedIn(true)
-          window.location.reload();
-    });
-  }
-
   return (
-        <form onSubmit = {handleSubmit}>
-        { loggedIn && <Redirect to="/profile"></Redirect>}
-
+        <form onSubmit = {props.handleSubmit}>
         <div className={styles.wrapper}>
         <h2>Login</h2>
         <input type="text" 
-               value= {email}
-               onChange={e => setEmail(e.target.value)}
+               value= {props.email}
+               onChange={e => props.setEmail(e.target.value)}
                placeholder="Username" 
                required/>
         <input type="password" 
-               value={password}
+               value={props.password}
                placeholder="Password" 
-               onChange={e => setPassword(e.target.value)}
+               onChange={e => props.setPassword(e.target.value)}
                required/>
         
         <div className={styles.text}>
