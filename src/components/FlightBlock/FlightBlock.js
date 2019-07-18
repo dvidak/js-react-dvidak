@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
-import { appState } from '../../state/AppState';
 import { Link } from 'react-router-dom'
 import styles from './FlightBlock.module.css';
 import { observer } from 'mobx-react';
-import { Flight } from '../Flight/Flight';
 
 
 export function FlightBlockComponent(props) {
@@ -13,14 +11,11 @@ export function FlightBlockComponent(props) {
   let hours=date.getHours();
   let min=date.getMinutes();
 
-  function setStateId(){
-      appState.id = props.id;
-  }
 
   return (
     <div className={styles.flightBlock}>
         <div className={styles.meni}>
-          <Link to={`/flight/${props.id}`} onClick={setStateId}>
+          <Link to={`/flight/${props.id}`}>
           <FontAwesomeIcon icon={faAngleDoubleDown} />
           </Link>
         </div>

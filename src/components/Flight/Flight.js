@@ -1,16 +1,10 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import styles from './Flight.module.css'
-import { getFlight } from '../../services/flights';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { appState } from '../../state/AppState';
 import { observer } from 'mobx-react';
 import { faTv, faWifi, faBabyCarriage , faUtensilSpoon } from '@fortawesome/free-solid-svg-icons';
 
-export function FlightComponent(props) {
-  const [ flight, setFlight ] = useState({});
-  const [ companyName, setCompanyName ] = useState('');
-
-
+export function FlightComponent({flight}) {
   let dateFlysAt = new Date(flight.flys_at);
   let hoursFlysAt=dateFlysAt.getHours();
   let minFlysAt=dateFlysAt.getMinutes();
@@ -26,14 +20,7 @@ export function FlightComponent(props) {
   let monthLandsAt = dateLandsAt.getMonth();
   let yearLandAt = dateLandsAt.getFullYear();
 
-  
-  useEffect( () => {
-    getFlight(appState.id).then( (r) => {
-      setFlight(r)
-      setCompanyName(r.company.name)
-    });
-  })
-  
+   
 
   return ( 
       <div>
@@ -44,7 +31,7 @@ export function FlightComponent(props) {
                 <div className={styles.leftContext}>
                     <p className={styles.txt}>Company</p>
                     <p className={styles.txt}>Available seats</p>
-                    <p className={styles.greyTxt}> {companyName}</p>
+                    <p className={styles.greyTxt}> compani name</p>
                     <p className={styles.greyTxt}>{flight.no_of_seats} </p>
                     <p className={styles.txt}>Deparst at</p>
                     <p className={styles.txt}>Lands at</p>
