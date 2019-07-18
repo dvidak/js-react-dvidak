@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 import {login} from '../services/auth';
 
 
-function LoginPageContainer() {
+function LoginPageContainer(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,7 +15,7 @@ function LoginPageContainer() {
     session.email = email;
     session.password = password;
     login(session).then( () => {
-          window.location.reload();
+        props.history.push('/profile');
     });
   }
 

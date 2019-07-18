@@ -7,20 +7,27 @@ import { getFlight } from '../services/flights';
 
 
 
-function FlightPageContainer({match}) {
+function FlightPageContainer(props) {
   const [ flight, setFlight ] = useState({});
 
   useEffect( () => {
-    getFlight(match.params.id).then( (r) => {
+    getFlight(props.match.params.id).then( (r) => {
       setFlight(r)
     });
   })
+
+  function openModal() {
+    props.history.push(`/flight/${props.match.params.id}/modal`);
+  }
 
   return (
 
     <div>
      {localStorage.getItem('token') ? <HeaderLoggedIn/> : <Header/> }
-     <Flight flight = {flight}/>
+     <Flight flight = {flight} 
+             id = {props.match.params.id} 
+             openModal = {openModal}
+             history = {props.history}/>
     </div>
   );
 };

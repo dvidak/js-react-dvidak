@@ -6,8 +6,8 @@ import styles from './FlightBlock.module.css';
 import { observer } from 'mobx-react';
 
 
-export function FlightBlockComponent(props) {
-  let date = new Date(props.flys_at);
+export function FlightBlockComponent({flight}) {
+  let date = new Date(flight.flys_at);
   let hours=date.getHours();
   let min=date.getMinutes();
 
@@ -15,7 +15,7 @@ export function FlightBlockComponent(props) {
   return (
     <div className={styles.flightBlock}>
         <div className={styles.meni}>
-          <Link to={`/flight/${props.id}`}>
+          <Link to={`/flight/${flight.id}`}>
           <FontAwesomeIcon icon={faAngleDoubleDown} />
           </Link>
         </div>
@@ -26,13 +26,13 @@ export function FlightBlockComponent(props) {
         </div>
         <div>
             <p><b>Departs at {hours}:{min}</b></p>
-            <p>{props.name}</p>
+            <p>{flight.name}</p>
             <p><FontAwesomeIcon className={styles.star} icon={faStar} />
                <FontAwesomeIcon className={styles.star} icon={faStar} />
                <FontAwesomeIcon className={styles.star} icon={faStar} />
-               <span className={styles.greyTxt}>  |  {props.no_of_seats} tickets available </span>
+               <span className={styles.greyTxt}>  |  {flight.no_of_seats} tickets available </span>
             </p>
-            <b>Price <span className={styles.blueTxt}>{props.base_price} $</span></b>
+            <b>Price <span className={styles.blueTxt}>{flight.base_price} $</span></b>
         </div>
     </div>
   );
