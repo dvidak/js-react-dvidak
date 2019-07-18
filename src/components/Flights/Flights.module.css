@@ -1,0 +1,11 @@
+.flightTitle {
+    margin-left: 14rem;
+    font-size: 25px;
+}
+
+.flightsArea {
+    width:70%;
+    margin: 5rem auto 5rem auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}

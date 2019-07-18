@@ -1,0 +1,31 @@
+.search{
+    background-color: #e8e9eb;
+    padding: 80px;
+
+}
+
+.searchBar{
+    margin: auto;
+    display: flex;
+    width: 70%;
+    border: 3px solid lightgray;
+}
+
+
+.searchElement{
+    padding: 15px;
+    width:25%;
+}
+
+#blueText{
+    background-color: #175fdb;
+    color: white;
+}
+
+.title{
+    color:#175fdb;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 0%;
+    font-size: 30px;
+}

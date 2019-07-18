@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { AppRouter } from './routes/AppRouter';
 
-function HelloWorld() {
+
+
+function App() {
   return (
-    <div>
-      <h1>Hello world!</h1>
-    </div>
+    <AppRouter/>
   );
 }
 
-ReactDOM.render(<HelloWorld />, document.getElementById('root'));
+
+ReactDOM.render(<App/>, document.getElementById('root'));
