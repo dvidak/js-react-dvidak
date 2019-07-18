@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Flight.module.css'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { observer } from 'mobx-react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTv, faWifi, faBabyCarriage , faUtensilSpoon } from '@fortawesome/free-solid-svg-icons';
 
 export function FlightComponent({flight}) {
@@ -30,7 +30,7 @@ export function FlightComponent({flight}) {
                 <div className={styles.leftContext}>
                     <p className={styles.txt}>Company</p>
                     <p className={styles.txt}>Available seats</p>
-                    <p className={styles.greyTxt}> compani name</p>
+                    <p className={styles.greyTxt}>  {flight.company_name}</p>
                     <p className={styles.greyTxt}>{flight.no_of_seats} </p>
                     <p className={styles.txt}>Deparst at</p>
                     <p className={styles.txt}>Lands at</p>
@@ -39,7 +39,7 @@ export function FlightComponent({flight}) {
                     <p className={styles.txt}>Base price</p>
                     <p className={styles.txt}>Current price</p>
                     <p className={styles.greyTxt}>{flight.base_price} $</p>
-                    <p className={styles.greyTxt}>{flight.base_price - 150} $</p>
+                    <p className={styles.greyTxt}>{flight.current_price} $</p>
                 </div>
             </div>
             <button className={styles.btn}>Book now</button>

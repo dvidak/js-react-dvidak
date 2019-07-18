@@ -15,10 +15,14 @@ import { logout } from '../services/auth';
 export function HomePageContainer() {
   useAsync(loadFlights.bind(null, appState));
 
+  function onFilterChange(e) {
+    appState.flightFilter = e.target.value;
+}
+
   return (
     <div>
         {localStorage.getItem('token') ? <HeaderLoggedIn logout = {logout} /> : <Header/> }
-        <SearchBar/>
+        <SearchBar flightFilter = {appState.flightFilter} onFilterChange = {onFilterChange}/>
         <Flights flights = {appState.filteredFlights}/>
     </div>
   );

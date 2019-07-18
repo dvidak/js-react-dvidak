@@ -1,14 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { appState } from '../../state/AppState';
-
 import styles from './SearchBar.module.css'
 
-function SearchBarComponent() {     
-       function onFilterChange(e) {
-              appState.flightFilter = e.target.value;
-       }
-
+function SearchBarComponent(props) {     
   return (
       <div className={styles.search}>
        <b><p className={styles.title}>Find best flight for you and your friends!</p></b>
@@ -22,8 +16,8 @@ function SearchBarComponent() {
                        max="2019-12-31"></input>
                 <input className={styles.searchElement}   
                        type="text" 
-                       value={appState.flightFilter}
-                       onChange={onFilterChange}
+                       value={props.flightFilter}
+                       onChange={props.onFilterChange}
                        placeholder="Search for place...."></input>
                 <input type="number" id="tentacles" 
                        className={styles.searchElement} 

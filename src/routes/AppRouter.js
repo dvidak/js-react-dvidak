@@ -9,9 +9,9 @@ import { FlightPage } from '../containers/FlightPage';
 export function AppRouter() {
   return (
     <Router>
-      <Route exact path="/" component={Home}/>
+      <PrivateRoute exact path="/" component={Home}/>
       <Route path="/login" component={Login}/>
-      <Route path="/flight/:id" component={FlightPage}/>
+      <PrivateRoute path="/flight/:id" component={FlightPage}/>
       <Route path="/register" component={Register}/>
       <PrivateRoute path="/profile" component={Profile}/>
     </Router>
