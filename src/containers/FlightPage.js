@@ -6,7 +6,6 @@ import { observer } from 'mobx-react';
 import { getFlight } from '../services/flights';
 
 
-
 function FlightPageContainer(props) {
   const [ flight, setFlight ] = useState({});
 

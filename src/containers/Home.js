@@ -6,13 +6,11 @@ import { SearchBar } from '../components/SearchBar/SearchBar';
 import { Flights } from '../components/Flights/Flights';
 import { observer } from 'mobx-react';
 import { loadFlights } from '../services/flights';
-import { appState } from '../state/AppState';
+import { AppContext } from '../state/AppContext';
 import { logout } from '../services/auth';
 
-
-
-
 function HomePageContainer() {
+  const { appState } = React.useContext(AppContext);  
   useAsync(loadFlights.bind(null, appState));
 
   function onFilterChange(e) {

@@ -2,7 +2,7 @@ import React, {useState}  from 'react';
 import { LoginForm } from '../forms/LoginForm';
 import { Profile } from './Profile';
 import { observer } from 'mobx-react';
-import {login} from '../services/auth';
+import { login } from '../services/auth';
 
 
 function LoginPageContainer(props) {

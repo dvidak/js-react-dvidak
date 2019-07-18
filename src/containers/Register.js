@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { RegisterForm } from '../forms/RegisterForm';
 import { observer } from 'mobx-react';
-import {register} from '../services/auth';
+import { register } from '../services/auth';
 import { Login } from './Login';
 
 function RegisterPageContainer(props) {
