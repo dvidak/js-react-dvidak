@@ -1,20 +1,15 @@
 import React from 'react';
-import { useAsync } from 'react-use';
-import { appState } from '../../state/AppState';
 import { observer } from 'mobx-react';
 import { FlightBlock } from '../FlightBlock/FlightBlock';
-import { loadFlights } from '../../services/flights';
 import styles from './Flights.module.css';
 
-function FlightsComponent() {
-    useAsync(loadFlights.bind(null, appState));
-
+function FlightsComponent({flights} ) {
   
     return (
         <div>
         <p className={styles.flightTitle}></p>
         <div className={styles.flightsArea}>
-        {appState.filteredFlights.map(f => {
+        {flights.map(f => {
           return (
             <FlightBlock
                 key = {f.id}
