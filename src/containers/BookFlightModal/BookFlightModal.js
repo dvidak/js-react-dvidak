@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import styles from './BookFlightModal.module.css';
+import { Booking } from '../../components/Booking/Booking';
 
 function BookFlightModalComponent(props) {
 console.log(props.match.params.id);
@@ -12,8 +13,7 @@ console.log(props.match.params.id);
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modalContent}>
-        <h1>Hello from book it !</h1>
-        <button onClick={closeModal} >Close</button>
+        <Booking onClick={closeModal} />
       </div>
     </div>
   );

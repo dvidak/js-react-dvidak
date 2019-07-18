@@ -1,9 +1,9 @@
-import { post } from '../services/api';
+import { postAuth } from '../services/api';
 
 export function login(session) {
     console.log(session);
     var body = JSON.stringify({session})
-    return post('session',body)
+    return postAuth('session',body)
         .then((response) => {
             if(response.session){
                 localStorage.setItem('token', response.session.token);
@@ -22,7 +22,7 @@ export function login(session) {
 export function register(user){
     var body = JSON.stringify({user})
     console.log(body);
-    return post('users',body)
+    return postAuth('users',body)
         .then((response) => {
             if(response.user){
                 alert("Success! Please login in!")
