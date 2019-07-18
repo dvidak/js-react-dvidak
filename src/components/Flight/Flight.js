@@ -12,7 +12,6 @@ export function FlightComponent({flight}) {
   let monthFlaysAt = dateFlysAt.getMonth();
   let yearFlaysAt = dateFlysAt.getFullYear();
 
-
   let dateLandsAt = new Date(flight.lands_at);
   let hoursLandsAt=dateLandsAt.getHours();
   let minLandsAt=dateLandsAt.getMinutes();
@@ -64,6 +63,5 @@ export function FlightComponent({flight}) {
     </div>
   );
 };
-
 
 export const Flight = observer (FlightComponent)

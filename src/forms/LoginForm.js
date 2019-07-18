@@ -1,24 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { Redirect } from "react-router-dom";
 import styles from './Forms.module.css';
-import {login} from '../services/auth';
 import { observer } from 'mobx-react';
 
-
-
-function LoginFormComponent() {
+function LoginFormComponent(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false)
 
-  
-  
   const handleSubmit = e => {
     e.preventDefault();
     const session = {};
     session.email = email;
     session.password = password;
-    login(session).then( () => {
+    props.login(session).then( () => {
           setLoggedIn(true)
           window.location.reload();
     });

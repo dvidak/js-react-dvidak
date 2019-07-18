@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { Redirect } from "react-router-dom";
 import styles from './Forms.module.css';
-import {register} from '../services/auth';
 import { observer } from 'mobx-react';
 
 
-function RegisterFormComponent() {  
+function RegisterFormComponent(props) {  
   const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -22,7 +21,7 @@ function RegisterFormComponent() {
         user.first_name = name;
         user.last_name = name;
         user.password = password;
-        register(user)
+        props.register(user)
         setRegistered(true);
     } else{
      alert("Password and confirm password does not match!")
@@ -63,5 +62,3 @@ function RegisterFormComponent() {
 }
 
 export const RegisterForm = observer (RegisterFormComponent)
-
-
