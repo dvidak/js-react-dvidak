@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './Header.module.css'
-import { logout } from '../../services/auth';
 import { observer } from 'mobx-react';
 
 
-function HeaderLoggedInComponent() {
+function HeaderLoggedInComponent({logout}) {
   return (
       <div className={styles.header}>
         <div className={styles.buttons}>
