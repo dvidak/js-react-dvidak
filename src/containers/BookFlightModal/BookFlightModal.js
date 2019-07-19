@@ -6,7 +6,7 @@ import { bookIt } from '../../services/booking';
 
 
 function BookFlightModalComponent(props) {
-  const [noOfSeats, setNoOfSeats] = useState('');
+  const [noOfSeats, setNoOfSeats] = useState('1');
 
   console.log(noOfSeats);
 
