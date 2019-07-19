@@ -9,17 +9,19 @@ function BookingComponent(props) {
       <div>
           <button className={styles.icon} onClick={props.onClick}><FontAwesomeIcon  icon={faWindowClose}/></button>
           <h2> Create booking </h2>
-          <div class={styles.input}>
+          <div className={styles.input}>
           <p><b>Number of passengers</b></p>
           <input type="number" 
                  id="tentacles" 
                  name="tentacles"
+                 value={props.noOfSeats}
+                 onChange={e => props.setNoOfSeats(e.target.value)}
                  placeholder="1"
                  min="1" 
                  max="10"></input>
           </div>
           <div className={styles.button}>
-          <button className={styles.btn}>Confirm booking</button>
+          <button className={styles.btn} onClick={props.bookFlight}>Confirm booking</button>
           </div>
       </div>
   );
