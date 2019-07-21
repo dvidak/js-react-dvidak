@@ -9,6 +9,8 @@ export function bookIt(booking){
         .then((response) => {
             if(response.booking){
                 alert("Success! Booking id" + response.booking.id)
+            }else if (response.errors){
+                alert("Flight is overbooked!")
             }else{
                 alert("Error!")
             }

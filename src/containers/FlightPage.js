@@ -4,6 +4,8 @@ import { Header } from '../components/Header/Header';
 import { Flight } from '../components/Flight/Flight';
 import { observer } from 'mobx-react';
 import { getFlight } from '../services/flights';
+import { logout } from '../services/auth';
+
 
 
 function FlightPageContainer(props) {
@@ -22,7 +24,7 @@ function FlightPageContainer(props) {
   return (
 
     <div>
-     {localStorage.getItem('token') ? <HeaderLoggedIn/> : <Header/> }
+     {localStorage.getItem('token') ? <HeaderLoggedIn logout={logout}/> : <Header/> }
      <Flight flight = {flight} 
              id = {props.match.params.id} 
              openModal = {openModal}
