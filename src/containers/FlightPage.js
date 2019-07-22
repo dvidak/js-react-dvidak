@@ -4,23 +4,31 @@ import { Header } from '../components/Header/Header';
 import { Flight } from '../components/Flight/Flight';
 import { observer } from 'mobx-react';
 import { getFlight } from '../services/flights';
+import { logout } from '../services/auth';
 
 
 
-function FlightPageContainer({match}) {
+function FlightPageContainer(props) {
   const [ flight, setFlight ] = useState({});
 
   useEffect( () => {
-    getFlight(match.params.id).then( (r) => {
+    getFlight(props.match.params.id).then( (r) => {
       setFlight(r)
     });
   })
 
+  function openModal() {
+    props.history.push(`/flight/${props.match.params.id}/modal`);
+  }
+
   return (
 
     <div>
-     {localStorage.getItem('token') ? <HeaderLoggedIn/> : <Header/> }
-     <Flight flight = {flight}/>
+     {localStorage.getItem('token') ? <HeaderLoggedIn logout={logout}/> : <Header/> }
+     <Flight flight = {flight} 
+             id = {props.match.params.id} 
+             openModal = {openModal}
+             history = {props.history}/>
     </div>
   );
 };

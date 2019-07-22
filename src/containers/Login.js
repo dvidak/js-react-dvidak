@@ -1,11 +1,11 @@
 import React, {useState}  from 'react';
 import { LoginForm } from '../forms/LoginForm';
-import { Profile } from './Profile';
+import { Redirect } from 'react-router-dom'
 import { observer } from 'mobx-react';
-import {login} from '../services/auth';
+import { login } from '../services/auth';
 
 
-function LoginPageContainer() {
+function LoginPageContainer(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,13 +15,13 @@ function LoginPageContainer() {
     session.email = email;
     session.password = password;
     login(session).then( () => {
-          window.location.reload();
+        window.location.reload();
     });
   }
 
   return (
     localStorage.getItem('token') ? 
-    <Profile/> : 
+    <Redirect to="/profile" /> : 
     <LoginForm login = {login} 
                handleSubmit = {handleSubmit} 
                email = {email}

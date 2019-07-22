@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { RegisterForm } from '../forms/RegisterForm';
 import { observer } from 'mobx-react';
-import {register} from '../services/auth';
+import { register } from '../services/auth';
 import { Login } from './Login';
 
-function RegisterPageContainer() {
+function RegisterPageContainer(props) {
   const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -20,9 +20,12 @@ function RegisterPageContainer() {
         user.first_name = name;
         user.last_name = name;
         user.password = password;
-        register(user).then(setRegistered(true));
-        window.location.reload();
-
+        register(user).then( () => {
+          setRegistered(true);
+          alert("Success! Please login in!")
+          props.history.push('/login');
+        }
+        );
     } else{
      alert("Password and confirm password does not match!")
     }
