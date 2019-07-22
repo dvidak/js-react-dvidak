@@ -4,19 +4,19 @@ import { observer } from 'mobx-react';
 
 function LoginFormComponent(props) {
   return (
-        <form onSubmit = {props.handleSubmit}>
+        <form onSubmit = {props.handleSubmit(props.onLogin)}>
         <div className={styles.wrapper}>
         <h2>Login</h2>
-        <input type='text' 
-               value= {props.email}
-               onChange={e => props.setEmail(e.target.value)}
-               placeholder='Username'
-               required/>
-        <input type='password'
-               value={props.password}
-               placeholder='Password'
-               onChange={e => props.setPassword(e.target.value)}
-               required/>
+        <input name="session.email" 
+               type="email" 
+               ref={props.register} 
+               placeholder="Email"
+               required />
+
+        <input name="session.password" 
+               type="password" 
+               ref={props.register} 
+               placeholder="Password" />
         
         <div className={styles.text}>
           <input type='checkbox' 

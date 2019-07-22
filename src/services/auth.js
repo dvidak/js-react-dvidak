@@ -1,9 +1,9 @@
 import { postAuth } from '../services/api';
 
-export function login(session) {
-    console.log(session);
-    var body = JSON.stringify({session})
-    return postAuth('session',body)
+export function login(data) {
+    console.log("Ušao u auth js")
+    console.log(data);
+    return postAuth('session',data)
         .then((response) => {
             if(response.session){
                 localStorage.setItem('token', response.session.token);

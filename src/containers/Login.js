@@ -1,4 +1,5 @@
-import React, {useState}  from 'react';
+import React  from 'react';
+import useForm from 'react-hook-form';
 import { LoginForm } from '../forms/LoginForm';
 import { Redirect } from 'react-router-dom'
 import { observer } from 'mobx-react';
@@ -6,17 +7,12 @@ import { login } from '../services/auth';
 
 
 function LoginPageContainer(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { register, handleSubmit, errors } = useForm();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const session = {};
-    session.email = email;
-    session.password = password;
-    login(session).then( () => {
-        window.location.reload();
-    });
+  function onLogin(data) {
+    console.log(data);
+    login(data).then( () => {
+    })
   }
 
   return (
@@ -24,10 +20,8 @@ function LoginPageContainer(props) {
     <Redirect to="/profile" /> : 
     <LoginForm login = {login} 
                handleSubmit = {handleSubmit} 
-               email = {email}
-               setEmail = {setEmail} 
-               password = {password}
-               setPassword = {setPassword}/>
+               onLogin = {onLogin}
+               register = {register}/>
   );
 };
 
