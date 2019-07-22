@@ -1,11 +1,10 @@
 import { post } from '../services/api';
 
 
-export function bookIt(booking){
-    console.log(booking)
-    var body = JSON.stringify({booking})
-    console.log(body);
-    return post('bookings',body)
+export function bookIt(data){
+    console.log('data')
+    console.log(data);
+    return post('bookings',data)
         .then((response) => {
             if(response.booking){
                 alert('Success! Booking id' + response.booking.id)

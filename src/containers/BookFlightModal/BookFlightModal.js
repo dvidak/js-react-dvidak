@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
+import useForm from 'react-hook-form';
 import { observer } from 'mobx-react';
 import styles from './BookFlightModal.module.css';
 import { Booking } from '../../components/Booking/Booking';
@@ -6,29 +7,28 @@ import { bookIt } from '../../services/booking';
 
 
 function BookFlightModalComponent(props) {
-  const [noOfSeats, setNoOfSeats] = useState('1');
+  const { register, handleSubmit, errors } = useForm();
   
   function closeModal() {
     props.history.goBack();
   }
 
-  const bookFlight = e => {
-    e.preventDefault();
-    const booking = {};
-    booking.no_of_seats = noOfSeats;
-    booking.flight_id = props.match.params.id;
-    bookIt(booking).then( () => {
-        props.history.goBack()
-    });
+  function bookFlight(data){
+    data.booking['flight_id'] = props.match.params.id;
+    bookIt(data).then( () => {
+      props.history.goBack()
+    }); 
   }
 
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modalContent}>
-        <Booking onClick={closeModal} 
+        <Booking register = {register}
+                 handleSubmit = {handleSubmit}
+                 errors = {errors}
                  bookFlight={bookFlight}
-                 noOfSeats = {noOfSeats}
-                 setNoOfSeats = {setNoOfSeats}/>
+                 onClick={closeModal} 
+                 />
       </div>
     </div>
   );

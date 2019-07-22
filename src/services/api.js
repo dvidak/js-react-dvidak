@@ -14,7 +14,7 @@ export function get(model) {
 export function post(model, body){
     return fetch(`https://flighter-hw7.herokuapp.com/api/${model}`,{
         method: 'POST',
-        body: body,
+        body: JSON.stringify(body),
         headers:{
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -25,9 +25,6 @@ export function post(model, body){
 
 
 export function postAuth(model, body){
-    console.log(model);
-    console.log("Body")
-    console.log(body);
     return fetch(`https://flighter-hw7.herokuapp.com/api/${model}`,{
         method: 'POST',
         body: JSON.stringify(body),
