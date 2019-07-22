@@ -2,23 +2,10 @@ import React from 'react';
 import styles from './Flight.module.css'
 import { observer } from 'mobx-react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import moment from 'moment'
 import { faTv, faWifi, faBabyCarriage , faUtensilSpoon } from '@fortawesome/free-solid-svg-icons';
 
 export function FlightComponent(props) {
-  let dateFlysAt = new Date(props.flight.flys_at);
-  let hoursFlysAt=dateFlysAt.getHours();
-  let minFlysAt=dateFlysAt.getMinutes();
-  let dayFlaysAt = dateFlysAt.getDay();
-  let monthFlaysAt = dateFlysAt.getMonth();
-  let yearFlaysAt = dateFlysAt.getFullYear();
-
-  let dateLandsAt = new Date(props.flight.lands_at);
-  let hoursLandsAt=dateLandsAt.getHours();
-  let minLandsAt=dateLandsAt.getMinutes();
-  let dayLandsAt = dateLandsAt.getDate();
-  let monthLandsAt = dateLandsAt.getMonth();
-  let yearLandAt = dateLandsAt.getFullYear();
-
   return ( 
       <div>
         <div className={styles.wrapper}>
@@ -32,8 +19,8 @@ export function FlightComponent(props) {
                     <p className={styles.greyTxt}>{props.flight.no_of_seats} </p>
                     <p className={styles.txt}>Deparst at</p>
                     <p className={styles.txt}>Lands at</p>
-                    <p className={styles.greyTxt}>{dayFlaysAt}.{monthFlaysAt}.{yearFlaysAt}. {hoursFlysAt}:{minFlysAt}</p>
-                    <p className={styles.greyTxt}>{dayLandsAt}.{monthLandsAt}.{yearLandAt}. {hoursLandsAt}:{minLandsAt}</p>
+                    <p className={styles.greyTxt}>{moment(new Date(props.flight.flys_at)).format("YYYY-MM-DD hh:mm:ss")}</p>
+                    <p className={styles.greyTxt}>{moment(new Date(props.flight.lands_at)).format("YYYY-MM-DD hh:mm:ss")}</p>
                     <p className={styles.txt}>Base price</p>
                     <p className={styles.txt}>Current price</p>
                     <p className={styles.greyTxt}>{props.flight.base_price} $</p>

@@ -3,15 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
 import styles from './FlightBlock.module.css';
+import moment from 'moment'
 import { observer } from 'mobx-react';
 
 
 export function FlightBlockComponent({flight}) {
-  let date = new Date(flight.flys_at);
-  let hours=date.getHours();
-  let min=date.getMinutes();
-
-
   return (
     <div className={styles.flightBlock}>
         <div className={styles.meni}>
@@ -21,11 +17,12 @@ export function FlightBlockComponent({flight}) {
         </div>
         <div>
         <img    src={require('../../img/preuzmi.png')} 
+                alt= ''
                 height="250" 
                 width="250" />
         </div>
         <div>
-            <p><b>Departs at {hours}:{min}</b></p>
+            <p><b>Departs at {moment(new Date(flight.flys_at)).format("hh:mm:ss a")}</b></p>
             <p>{flight.name}</p>
             <p><FontAwesomeIcon className={styles.star} icon={faStar} />
                <FontAwesomeIcon className={styles.star} icon={faStar} />

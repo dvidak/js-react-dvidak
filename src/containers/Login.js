@@ -1,6 +1,6 @@
 import React, {useState}  from 'react';
 import { LoginForm } from '../forms/LoginForm';
-import { Profile } from './Profile';
+import { Redirect } from 'react-router-dom'
 import { observer } from 'mobx-react';
 import { login } from '../services/auth';
 
@@ -15,13 +15,13 @@ function LoginPageContainer(props) {
     session.email = email;
     session.password = password;
     login(session).then( () => {
-        props.history.push('/profile');
+        window.location.reload();
     });
   }
 
   return (
     localStorage.getItem('token') ? 
-    <Profile/> : 
+    <Redirect to="/profile" /> : 
     <LoginForm login = {login} 
                handleSubmit = {handleSubmit} 
                email = {email}
