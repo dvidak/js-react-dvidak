@@ -6,13 +6,11 @@ import { observer } from 'mobx-react';
 import { login } from '../services/auth';
 
 
-function LoginPageContainer(props) {
+function LoginPageContainer() {
   const { register, handleSubmit, errors } = useForm();
 
   function onLogin(data) {
-    console.log(data);
-    login(data).then( () => {
-    })
+    login(data)
   }
 
   return (
@@ -21,6 +19,7 @@ function LoginPageContainer(props) {
     <LoginForm login = {login} 
                handleSubmit = {handleSubmit} 
                onLogin = {onLogin}
+               errors = {errors}
                register = {register}/>
   );
 };

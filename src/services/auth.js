@@ -19,16 +19,14 @@ export function login(data) {
             });
 }
 
-export function register(user){
-    var body = JSON.stringify({user})
-    return postAuth('users',body)
+export function createUser(data){
+    return postAuth('users',data)
         .then((response) => {
             if(response.user){
                 alert('Success! Please login in!')
             }else{
                 alert('Error! Please try again!')
             }
-        console.log(response.user.id);
         }).catch(error => console.error('Error:', error));
 }
 
