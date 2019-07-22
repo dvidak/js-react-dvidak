@@ -22,12 +22,12 @@ function RegisterPageContainer(props) {
         user.password = password;
         register(user).then( () => {
           setRegistered(true);
-          alert("Success! Please login in!")
+          alert('Success! Please login in!')
           props.history.push('/login');
         }
         );
     } else{
-     alert("Password and confirm password does not match!")
+     alert('Password and confirm password does not match!')
     }
   }
 

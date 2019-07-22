@@ -26,9 +26,7 @@ function FlightPageContainer(props) {
     <div>
      {localStorage.getItem('token') ? <HeaderLoggedIn logout={logout}/> : <Header/> }
      <Flight flight = {flight} 
-             id = {props.match.params.id} 
-             openModal = {openModal}
-             history = {props.history}/>
+             openModal = {openModal}/>
     </div>
   );
 };

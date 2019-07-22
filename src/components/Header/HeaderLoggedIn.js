@@ -10,7 +10,7 @@ function HeaderLoggedInComponent({logout}) {
             <p className={styles.label}>Hi, {localStorage.getItem('username')}!</p>
             <button className={styles.authBtn}
                     onClick = {logout}>
-            <a href="/login">Logut</a></button>
+            <a href='/login'>Logut</a></button>
         </div>
       </div>
   );

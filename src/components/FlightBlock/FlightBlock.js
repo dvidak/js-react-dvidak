@@ -1,5 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
 import styles from './FlightBlock.module.css';
@@ -18,8 +18,8 @@ export function FlightBlockComponent({flight}) {
         <div>
         <img    src={require('../../img/preuzmi.png')} 
                 alt= ''
-                height="250" 
-                width="250" />
+                height='250' 
+                width='250' />
         </div>
         <div>
             <p><b>Departs at {moment(new Date(flight.flys_at)).format("hh:mm:ss a")}</b></p>

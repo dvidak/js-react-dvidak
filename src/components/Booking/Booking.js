@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Booking.module.css'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { observer } from 'mobx-react';
 
@@ -11,14 +11,14 @@ function BookingComponent(props) {
           <h2> Create booking </h2>
           <div className={styles.input}>
           <p><b>Number of passengers</b></p>
-          <input type="number" 
-                 id="tentacles" 
-                 name="tentacles"
+          <input type='number' 
+                 id='tentacles'
+                 name='tentacles'
                  value={props.noOfSeats}
                  onChange={e => props.setNoOfSeats(e.target.value)}
-                 placeholder="1"
-                 min="1" 
-                 max="10"></input>
+                 placeholder='1'
+                 min='1' 
+                 max='10'></input>
           </div>
           <div className={styles.button}>
           <button className={styles.btn} onClick={props.bookFlight}>Confirm booking</button>

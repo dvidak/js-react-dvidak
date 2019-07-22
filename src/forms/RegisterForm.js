@@ -8,27 +8,27 @@ function RegisterFormComponent(props) {
     <form onSubmit = {props.handleSubmit}>
     <div className={styles.wrapper}>
     <h2>Register</h2>
-    <input type="text" 
+    <input type='text' 
            value= {props.name}
-           placeholder="Full name" 
+           placeholder='Full name'
            onChange={e => props.setName(e.target.value)}
            required/>
-    <input type="text" 
-           placeholder="Username" 
+    <input type='text'
+           placeholder='Username' 
            value={props.email}
            onChange={e => props.setEmail(e.target.value)}
            required/>
-    <input type="password" 
+    <input type='password'
            value={props.password}
-           placeholder="Password" 
+           placeholder='Password'
            onChange={e => props.setPassword(e.target.value)}
            required/>
-    <input type="password" 
+    <input type='password' 
            value={props.passwordconf}
-           placeholder="Confirm password"
+           placeholder='Confirm password'
            onChange={e => props.setPasswordConf(e.target.value)}
            required/>
-    <button type="submit" 
+    <button type='submit' 
             className={styles.btn}>Register</button>
     </div>
     </form>

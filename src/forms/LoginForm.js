@@ -7,31 +7,31 @@ function LoginFormComponent(props) {
         <form onSubmit = {props.handleSubmit}>
         <div className={styles.wrapper}>
         <h2>Login</h2>
-        <input type="text" 
+        <input type='text' 
                value= {props.email}
                onChange={e => props.setEmail(e.target.value)}
-               placeholder="Username" 
+               placeholder='Username'
                required/>
-        <input type="password" 
+        <input type='password'
                value={props.password}
-               placeholder="Password" 
+               placeholder='Password'
                onChange={e => props.setPassword(e.target.value)}
                required/>
         
         <div className={styles.text}>
-          <input type="checkbox" 
+          <input type='checkbox' 
                 id={styles.rememberMe} 
-                name="rememberMe"/>
+                name='rememberMe'/>
           <label>Remember me</label>
         </div>
-        <button type="submit" 
+        <button type='submit'
                 className={styles.btn}>
                 Login
         </button>
         <div className={styles.text}>
           <p> Don't have an account?</p>
           <p><a className={styles.blueTxt} 
-                href="/register"> Register here </a></p>
+                href='/register'> Register here </a></p>
         </div>
         </div>
         </form>
