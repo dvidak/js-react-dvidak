@@ -12,10 +12,15 @@ import { logout } from '../services/auth';
 function HomePageContainer() {
   const { appState } = React.useContext(AppContext);  
   useAsync(loadFlights.bind(null, appState));
+  const filter = React.useMemo(() => appState.filteredFlights, [appState.flights]);
+
 
   function onFilterChange(e) {
     appState.flightFilter = e.target.value;
   }
+  console.log("Filter");
+  console.log(filter);
+
 
   return (
     <div>
