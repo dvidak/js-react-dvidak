@@ -12,8 +12,8 @@ function FlightPageContainer(props) {
   const [ flight, setFlight ] = useState({});
 
   useEffect( () => {
-    getFlight(props.match.params.id).then( (r) => {
-      setFlight(r)
+    getFlight(props.match.params.id).then( (f) => {
+      setFlight(f)
     });
   })
 
@@ -22,14 +22,12 @@ function FlightPageContainer(props) {
   }
 
   return (
-
     <div>
-     {localStorage.getItem('token') ? <HeaderLoggedIn logout={logout}/> : <Header/> }
-     <Flight flight = {flight} 
-             openModal = {openModal}/>
+      {localStorage.getItem('token') ? <HeaderLoggedIn logout={logout}/> : <Header/> }
+      <Flight flight = {flight} 
+              openModal = {openModal}/>
     </div>
   );
 };
-
 
 export const FlightPage = observer (FlightPageContainer)

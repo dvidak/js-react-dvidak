@@ -10,7 +10,7 @@ export function FlightComponent(props) {
       <div>
         <div className={styles.wrapper}>
           <div className={styles.left}>
-            <h2 > {props.flight.name} </h2>
+            <h2> {props.flight.name} </h2>
             <div className={styles.contextWrapper}>
                 <div className={styles.leftContext}>
                     <p className={styles.txt}>Company</p>
@@ -33,9 +33,9 @@ export function FlightComponent(props) {
           <div className={styles.rightContextWrapper}>
                 <div className={styles.inner1}>
                     <img src={require('../../img/preuzmi.png')} 
-                         height='200' 
-                         alt=''
-                         width='300' />
+                         height="200" 
+                         alt=""
+                         width="300" />
                 </div>
                 <div className={styles.inner2}>
                 <p className={styles.greyTxt}> <FontAwesomeIcon  icon={faWifi}/> Wireless internet</p>

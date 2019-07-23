@@ -27,8 +27,7 @@ function BookFlightModalComponent(props) {
                  handleSubmit = {handleSubmit}
                  errors = {errors}
                  bookFlight={bookFlight}
-                 onClick={closeModal} 
-                 />
+                 onClick={closeModal} />
       </div>
     </div>
   );

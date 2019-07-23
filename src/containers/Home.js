@@ -15,13 +15,14 @@ function HomePageContainer() {
 
   function onFilterChange(e) {
     appState.flightFilter = e.target.value;
-}
+  }
 
   return (
     <div>
         {localStorage.getItem('token') ? <HeaderLoggedIn logout = {logout} /> : <Header/> }
-        <SearchBar flightFilter = {appState.flightFilter} onFilterChange = {onFilterChange}/>
-        <Flights flights = {appState.filteredFlights}/>
+        <SearchBar flightFilter = {appState.flightFilter} 
+                   onFilterChange = {onFilterChange} />
+        <Flights flights = {appState.filteredFlights} />
     </div>
   );
 };

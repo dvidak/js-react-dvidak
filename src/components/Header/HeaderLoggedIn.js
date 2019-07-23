@@ -5,14 +5,15 @@ import { observer } from 'mobx-react';
 
 function HeaderLoggedInComponent({logout}) {
   return (
-      <div className={styles.header}>
-        <div className={styles.buttons}>
-            <p className={styles.label}>Hi, {localStorage.getItem('username')}!</p>
-            <button className={styles.authBtn}
-                    onClick = {logout}>
-            <a href='/login'>Logut</a></button>
-        </div>
+    <div className={styles.header}>
+      <div className={styles.buttons}>
+        <p className={styles.label}>Hi, {localStorage.getItem('username')}!</p>
+        <button className={styles.authBtn}
+                onClick = {logout}>
+                <a href='/login'>Logut</a>
+        </button>
       </div>
+    </div>
   );
 };
 

@@ -10,27 +10,27 @@ import { observer } from 'mobx-react';
 export function FlightBlockComponent({flight}) {
   return (
     <div className={styles.flightBlock}>
-        <div className={styles.meni}>
-          <Link to={`/flight/${flight.id}`}>
+      <div className={styles.meni}>
+        <Link to={`/flight/${flight.id}`}>
           <FontAwesomeIcon icon={faAngleDoubleDown} />
-          </Link>
-        </div>
-        <div>
-        <img    src={require('../../img/preuzmi.png')} 
-                alt= ''
-                height='250' 
-                width='250' />
-        </div>
-        <div>
-            <p><b>Departs at {moment(new Date(flight.flys_at)).format("hh:mm:ss a")}</b></p>
-            <p>{flight.name}</p>
-            <p><FontAwesomeIcon className={styles.star} icon={faStar} />
-               <FontAwesomeIcon className={styles.star} icon={faStar} />
-               <FontAwesomeIcon className={styles.star} icon={faStar} />
-               <span className={styles.greyTxt}>  |  {flight.no_of_seats} tickets available </span>
-            </p>
-            <b>Price <span className={styles.blueTxt}>{flight.base_price} $</span></b>
-        </div>
+        </Link>
+      </div>
+      <div>
+        <img  src={require('../../img/preuzmi.png')} 
+              alt= ""
+              height="250" 
+              width="250" />
+      </div>
+      <div>
+        <p><b>Departs at {moment(new Date(flight.flys_at)).format('hh:mm:ss a')}</b></p>
+        <p>{flight.name}</p>
+        <p><FontAwesomeIcon className={styles.star} icon={faStar} />
+           <FontAwesomeIcon className={styles.star} icon={faStar} />
+           <FontAwesomeIcon className={styles.star} icon={faStar} />
+           <span className={styles.greyTxt}>  |  {flight.no_of_seats} tickets available </span>
+        </p>
+        <b>Price <span className={styles.blueTxt}>{flight.base_price} $</span></b>
+      </div>
     </div>
   );
 };

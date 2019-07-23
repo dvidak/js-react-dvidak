@@ -6,17 +6,17 @@ import styles from './Flights.module.css';
 function FlightsComponent({flights} ) {
   
     return (
-        <div>
+      <div>
         <p className={styles.flightTitle}></p>
         <div className={styles.flightsArea}>
-        <Fragment>
-        {flights.map( flight => {
-          return (
-            <FlightBlock flight={flight} key = {flight.id}/>
-          );
-        })}
-      </Fragment>
-      </div>
+          <Fragment>
+            {flights.map( flight => {
+              return (
+                <FlightBlock flight={flight} key = {flight.id}/>
+              );
+            })}
+          </Fragment>
+        </div>
       </div>
     );
 }
