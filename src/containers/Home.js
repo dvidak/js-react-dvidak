@@ -12,28 +12,16 @@ import { logout } from '../services/auth';
 function HomePageContainer() {
   const { appState } = React.useContext(AppContext);  
   useAsync(loadFlights.bind(null, appState));
-  const [filtered, setFiltered] = React.useState(1);
-  const f = function filteredFlights() {
-              return appState.flights
-                         .filter((flight) => flight.name
-                                    .toLowerCase()
-                                    .includes(appState.flightFilter.toLowerCase()
-                          ));
-  }
-
-  const filter = React.useMemo(() => f, [filtered]);
-
 
   function onFilterChange(e) {
     appState.flightFilter = e.target.value;
-  }
- 
+}
+
   return (
     <div>
         {localStorage.getItem('token') ? <HeaderLoggedIn logout = {logout} /> : <Header/> }
-        <SearchBar flightFilter = {appState.flightFilter} 
-                   onFilterChange = {onFilterChange} />
-        <Flights flights = {appState.flights} />
+        <SearchBar flightFilter = {appState.flightFilter} onFilterChange = {onFilterChange}/>
+        <Flights flights = {appState.filteredFlights}/>
     </div>
   );
 };
