@@ -17,13 +17,13 @@ function BookingComponent(props) {
             <input type = "number" 
                    name = "booking.no_of_seats"
                    ref = {props.register({
-                    required: 'Select is required!',
+                    required: 'Please select!'
                    })}
                    placeholder = "1"
                    min = "1" 
                    max = "10">
             </input>
-            {props.errors['booking.no_of_seats'] && props.errors['booking.no_of_seats'].message}
+            <p className={styles.error}>{props.errors['booking.no_of_seats'] && props.errors['booking.no_of_seats'].message}</p>
           </div>
           <div className={styles.button}>
             <button className={styles.btn} 

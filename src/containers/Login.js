@@ -10,7 +10,9 @@ function LoginPageContainer() {
   const { register, handleSubmit, errors } = useForm();
 
   function onLogin(data) {
-    login(data)
+    login(data).then( () => {
+      window.location.reload();
+    })
   }
 
   return (

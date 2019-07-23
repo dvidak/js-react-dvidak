@@ -22,8 +22,12 @@ export function login(data) {
 export function createUser(data){
     return postAuth('users',data)
         .then((response) => {
+            console.log(response)
             if(response.user){
+                console.log(response.user)
                 alert('Success! Please login in!')
+            }else if(response.errors.email){
+                alert('Email ' + response.errors.email[0])
             }else{
                 alert('Error! Please try again!')
             }
