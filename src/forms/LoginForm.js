@@ -12,7 +12,9 @@ function LoginFormComponent(props) {
                    placeholder="Email"
                    ref = {props.register({
                     required: 'Email is required!',
-                    })}/>
+                    pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                    message: 'This is not an email format!'},})}/>
             <p className={styles.error}>{props.errors['session.email'] && props.errors['session.email'].message}</p>
             <input name="session.password" 
                    type="password" 
@@ -24,6 +26,7 @@ function LoginFormComponent(props) {
             <div className={styles.text}>
               <input type="checkbox"
                      id={styles.rememberMe} 
+                     onChange = {props.onChange}
                      name="rememberMe"/>
               <label>Remember me</label>
             </div>

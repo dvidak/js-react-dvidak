@@ -1,22 +1,21 @@
 import React , {useState}  from 'react'
 import useForm from 'react-hook-form';
-import { RegisterForm } from '../forms/RegisterForm';
-import { Login } from './Login';
-
+import { Redirect } from 'react-router-dom'
 import { observer } from 'mobx-react';
 import { createUser } from '../services/auth';
+import { RegisterForm } from '../forms/RegisterForm';
 
 function RegisterPageContainer(props) {
   const { register, handleSubmit, errors } = useForm();
-  const [ success, setSuccess] = useState(false);
   
   function onRegister(data){
-      createUser(data).then( res => console.log(res));
+      createUser(data);
+      window.location.reload();
   }
 
   return (
-    success ? 
-    <Login/> :
+    localStorage.getItem('registered') ? 
+    <Redirect to="/login" /> :     
     <RegisterForm register = {register}
                   handleSubmit = {handleSubmit}
                   onRegister = {onRegister}
