@@ -5,11 +5,11 @@ import { observer } from 'mobx-react';
 import { login } from '../services/auth';
 
 
-function LoginPageContainer() {
+function LoginPageContainer(props) {
   function onLogin(data) {
-    login(data).then( () => {
+    login(data).then(res => {
       window.location.reload();
-    })
+    });
   }
 
   return (

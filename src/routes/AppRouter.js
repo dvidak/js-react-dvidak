@@ -10,11 +10,11 @@ import { BookFlightModal} from '../containers/BookFlightModal/BookFlightModal'
 export function AppRouter() {
   return (
     <Router>
-      <PrivateRoute exact path='/' component={Home}/>
       <Route path='/login' component={Login}/>
-      <PrivateRoute path='/flight/:id' component={FlightPage}/>
-      <Route exact path='/flight/:id/modal' component={BookFlightModal} />
       <Route path='/register' component={Register}/>
+      <PrivateRoute exact path='/' component={Home}/>
+      <PrivateRoute path='/flight/:id' component={FlightPage}/>
+      <PrivateRoute exact path='/flight/:id/modal' component={BookFlightModal} />
       <PrivateRoute path='/profile' component={Profile}/>
     </Router>
   );

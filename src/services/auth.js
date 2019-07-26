@@ -1,7 +1,6 @@
 import { postAuth } from '../services/api';
 
 export function login(data) {
-    console.log("Ušao u auth js")
     console.log(data);
     return postAuth('session',data)
         .then((response) => {
@@ -9,7 +8,7 @@ export function login(data) {
                 localStorage.setItem('token', response.session.token);
                 let str = response.session.user.email;
                 localStorage.setItem('username', str.substring(0, str.lastIndexOf('@')));
-                
+                return (response)   
             }else{
                 console.log(response);
                 alert('Error! Please try again!')
@@ -23,13 +22,14 @@ export function createUser(data){
     return postAuth('users',data)
         .then((response) => {
             if(response.user){
-                console.log(response.user)
                 alert('Success! Please login in!')
-                localStorage.setItem('registered', true);
+                return (response)   
             }else if(response.errors.email){
                 alert('Email ' + response.errors.email[0])
+                return (response)   
             }else{
                 alert('Error! Please try again!')
+                return (response)   
             }
         }).catch(error => console.error('Error:', error));
 }
