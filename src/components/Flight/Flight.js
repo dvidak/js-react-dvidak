@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Flight.module.css'
 import { observer } from 'mobx-react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import moment from 'moment'
 import { faTv, faWifi, faBabyCarriage , faUtensilSpoon } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,7 +10,7 @@ export function FlightComponent(props) {
       <div>
         <div className={styles.wrapper}>
           <div className={styles.left}>
-            <h2 > {props.flight.name} </h2>
+            <h2> {props.flight.name} </h2>
             <div className={styles.contextWrapper}>
                 <div className={styles.leftContext}>
                     <p className={styles.txt}>Company</p>
@@ -19,8 +19,8 @@ export function FlightComponent(props) {
                     <p className={styles.greyTxt}>{props.flight.no_of_seats} </p>
                     <p className={styles.txt}>Deparst at</p>
                     <p className={styles.txt}>Lands at</p>
-                    <p className={styles.greyTxt}>{moment(new Date(props.flight.flys_at)).format("YYYY-MM-DD hh:mm:ss")}</p>
-                    <p className={styles.greyTxt}>{moment(new Date(props.flight.lands_at)).format("YYYY-MM-DD hh:mm:ss")}</p>
+                    <p className={styles.greyTxt}>{moment(props.flight.flys_at).format('YYYY-MM-DD HH:mm:ss')}</p>
+                    <p className={styles.greyTxt}>{moment(props.flight.lands_at).format('YYYY-MM-DD HH:mm:ss')}</p>
                     <p className={styles.txt}>Base price</p>
                     <p className={styles.txt}>Current price</p>
                     <p className={styles.greyTxt}>{props.flight.base_price} $</p>
@@ -34,6 +34,7 @@ export function FlightComponent(props) {
                 <div className={styles.inner1}>
                     <img src={require('../../img/preuzmi.png')} 
                          height="200" 
+                         alt=""
                          width="300" />
                 </div>
                 <div className={styles.inner2}>

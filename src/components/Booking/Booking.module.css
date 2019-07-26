@@ -13,12 +13,22 @@
     color: #175fdb;
 }
 
+.input input{
+    margin-left: 15%;
+}
+
 .button{
     margin-top: 10px;
 }
 
 .icon{
     margin-left: 90%;
-    background-color: lightgray;
-    color:#175fdb;
+    background: white;
+    border: none;
+}
+
+.error{
+    color: red;
+    font-size: 14px;
+    margin-left: 15%;
 }

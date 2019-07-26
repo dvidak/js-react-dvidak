@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react';
 import { FlightBlock } from '../FlightBlock/FlightBlock';
 import styles from './Flights.module.css';
@@ -6,17 +6,15 @@ import styles from './Flights.module.css';
 function FlightsComponent({flights} ) {
   
     return (
-        <div>
+      <div>
         <p className={styles.flightTitle}></p>
         <div className={styles.flightsArea}>
-        <Fragment>
-        {flights.map( flight => {
-          return (
-            <FlightBlock flight={flight} key = {flight.id}/>
-          );
-        })}
-      </Fragment>
-      </div>
+            {flights.map( flight => {
+              return (
+                <FlightBlock flight={flight} key = {flight.id}/>
+              );
+            })}
+        </div>
       </div>
     );
 }

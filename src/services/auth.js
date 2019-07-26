@@ -1,35 +1,36 @@
 import { postAuth } from '../services/api';
 
-export function login(session) {
-    console.log(session);
-    var body = JSON.stringify({session})
-    return postAuth('session',body)
+export function login(data) {
+    console.log(data);
+    return postAuth('session',data)
         .then((response) => {
             if(response.session){
                 localStorage.setItem('token', response.session.token);
                 let str = response.session.user.email;
-                localStorage.setItem('username', str.substring(0, str.lastIndexOf("@")));
-                
+                localStorage.setItem('username', str.substring(0, str.lastIndexOf('@')));
+                return (response)   
             }else{
                 console.log(response);
                 alert('Error! Please try again!')
             }        
         }).catch(error =>{ 
-                alert("Error!");
+                alert('Error!');
             });
 }
 
-export function register(user){
-    var body = JSON.stringify({user})
-    console.log(body);
-    return postAuth('users',body)
+export function createUser(data){
+    return postAuth('users',data)
         .then((response) => {
             if(response.user){
-                alert("Success! Please login in!")
+                alert('Success! Please login in!')
+                return (response)   
+            }else if(response.errors.email){
+                alert('Email ' + response.errors.email[0])
+                return (response)   
             }else{
-                alert("Error! Please try again!")
+                alert('Error! Please try again!')
+                return (response)   
             }
-        console.log(response.user.id);
         }).catch(error => console.error('Error:', error));
 }
 
