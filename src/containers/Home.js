@@ -22,7 +22,7 @@ function HomePageContainer() {
                         ));
   }
 
-  const filtered = React.useMemo(filteredFlights, [appState.flightFilter])
+  const filtered = React.useMemo(filteredFlights, [appState.flightFilter, appState.flights])
 
   function onFilterChange(e) {
     appState.flightFilter = e.target.value;

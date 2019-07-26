@@ -1,5 +1,4 @@
 import React from 'react';
-import useForm from 'react-hook-form';
 import { observer } from 'mobx-react';
 import styles from './BookFlightModal.module.css';
 import { Booking } from '../../components/Booking/Booking';
@@ -7,7 +6,6 @@ import { bookIt } from '../../services/booking';
 
 
 function BookFlightModalComponent(props) {
-  const { register, handleSubmit, errors } = useForm();
   
   function closeModal() {
     props.history.goBack();
@@ -23,10 +21,7 @@ function BookFlightModalComponent(props) {
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modalContent}>
-        <Booking register = {register}
-                 handleSubmit = {handleSubmit}
-                 errors = {errors}
-                 bookFlight={bookFlight}
+        <Booking bookFlight={bookFlight}
                  onClick={closeModal} />
       </div>
     </div>

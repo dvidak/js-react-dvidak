@@ -1,12 +1,16 @@
-import React from 'react';
+import React  from 'react';
+import useForm from 'react-hook-form';
 import styles from './Booking.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { observer } from 'mobx-react';
 
+
 function BookingComponent(props) {
+  const { register, handleSubmit, errors } = useForm();
+
   return (
-      <form onSubmit = {props.handleSubmit(props.bookFlight)}>
+      <form onSubmit = {handleSubmit(props.bookFlight)}>
           <button className = {styles.icon} 
                   onClick = {props.onClick}>
                   <FontAwesomeIcon  icon = {faWindowClose}/>
@@ -16,14 +20,14 @@ function BookingComponent(props) {
             <p><b>Number of passengers</b></p>
             <input type = "number" 
                    name = "booking.no_of_seats"
-                   ref = {props.register({
+                   ref = {register({
                     required: 'Please select!'
                    })}
                    placeholder = "1"
                    min = "1" 
                    max = "10">
             </input>
-            <p className={styles.error}>{props.errors['booking.no_of_seats'] && props.errors['booking.no_of_seats'].message}</p>
+            <p className={styles.error}>{errors['booking.no_of_seats'] && errors['booking.no_of_seats'].message}</p>
           </div>
           <div className={styles.button}>
             <button className={styles.btn} 
