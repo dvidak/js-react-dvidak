@@ -9,7 +9,6 @@ class AppState{
 decorate (AppState, {
     flights: observable,
     flightFilter: observable,
-    //filteredFlights: computed,
 });
 
 export const appState = new AppState();
