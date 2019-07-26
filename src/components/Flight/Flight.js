@@ -19,8 +19,8 @@ export function FlightComponent(props) {
                     <p className={styles.greyTxt}>{props.flight.no_of_seats} </p>
                     <p className={styles.txt}>Deparst at</p>
                     <p className={styles.txt}>Lands at</p>
-                    <p className={styles.greyTxt}>{moment(new Date(props.flight.flys_at)).format('YYYY-MM-DD hh:mm:ss')}</p>
-                    <p className={styles.greyTxt}>{moment(new Date(props.flight.lands_at)).format('YYYY-MM-DD hh:mm:ss')}</p>
+                    <p className={styles.greyTxt}>{moment(props.flight.flys_at).format('YYYY-MM-DD HH:mm:ss')}</p>
+                    <p className={styles.greyTxt}>{moment(props.flight.lands_at).format('YYYY-MM-DD HH:mm:ss')}</p>
                     <p className={styles.txt}>Base price</p>
                     <p className={styles.txt}>Current price</p>
                     <p className={styles.greyTxt}>{props.flight.base_price} $</p>

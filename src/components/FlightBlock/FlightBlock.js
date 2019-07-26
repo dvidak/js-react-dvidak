@@ -22,7 +22,7 @@ export function FlightBlockComponent({flight}) {
               width="250" />
       </div>
       <div>
-        <p><b>Departs at {moment(new Date(flight.flys_at)).format('hh:mm:ss a')}</b></p>
+        <p><b>Departs at {moment(flight.flys_at).format('HH:mm:ss')}</b></p>
         <p>{flight.name}</p>
         <p><FontAwesomeIcon className={styles.star} icon={faStar} />
            <FontAwesomeIcon className={styles.star} icon={faStar} />

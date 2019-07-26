@@ -9,13 +9,11 @@ function FlightsComponent({flights} ) {
       <div>
         <p className={styles.flightTitle}></p>
         <div className={styles.flightsArea}>
-          <Fragment>
             {flights.map( flight => {
               return (
                 <FlightBlock flight={flight} key = {flight.id}/>
               );
             })}
-          </Fragment>
         </div>
       </div>
     );
