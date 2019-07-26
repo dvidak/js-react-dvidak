@@ -17,7 +17,7 @@ function UserModalComponent(props) {
         <EditProfile onClick={closeModal} />
       </div>
     </div>
-  );
+  ); 
 }
 
 export const UserModal = observer(UserModalComponent);

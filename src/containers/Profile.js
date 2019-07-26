@@ -1,6 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { UserDetails } from '../components/UserDetails/UserDetails';
+import { HeaderLoggedIn } from '../components/Header/HeaderLoggedIn';
+import { UserBookings } from '../components/UserBookings/UserBookings';
+
+
 
 function ProfilePageContainer(props) {
 
@@ -11,8 +15,9 @@ function ProfilePageContainer(props) {
 
   return (
     <div>
-        <h1>Profile js</h1>
+        <HeaderLoggedIn/>
         <UserDetails openModal = {openModal}/>
+        <UserBookings/>
     </div>
   );
 };

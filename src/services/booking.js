@@ -1,4 +1,4 @@
-import { post } from '../services/api';
+import { post , get } from '../services/api';
 
 
 export function bookIt(data){
@@ -14,4 +14,12 @@ export function bookIt(data){
                 alert('Error!')
             }
         }).catch(error => console.error('Error:', error));
+}
+
+
+export function getMyBookings(data){
+    console.log(data)
+    return get('bookings',data)
+    .then((response) => console.log(response))
+    .catch(error => console.error('Error:', error));
 }
