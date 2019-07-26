@@ -1,5 +1,4 @@
 import React  from 'react'
-import useForm from 'react-hook-form';
 import { observer } from 'mobx-react';
 import { createUser } from '../services/auth';
 import { RegisterForm } from '../forms/RegisterForm';

@@ -1,5 +1,4 @@
 import { postAuth } from '../services/api';
-import { locale } from 'moment';
 
 export function login(data) {
     console.log("Ušao u auth js")

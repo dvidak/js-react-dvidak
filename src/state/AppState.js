@@ -1,4 +1,4 @@
-import {observable, decorate, computed, autorun} from 'mobx';
+import {observable, decorate, autorun} from 'mobx';
 
 class AppState{
     flights = [];
