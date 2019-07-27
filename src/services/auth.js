@@ -1,7 +1,7 @@
 import { postAuth } from '../services/api';
 
 export function login(data) {
-    console.log(data);
+    console.log((data));
     return postAuth('session',data)
         .then((response) => {
             if(response.session){

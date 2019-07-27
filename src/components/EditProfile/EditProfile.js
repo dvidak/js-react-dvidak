@@ -1,4 +1,4 @@
-import React, {useState}  from 'react';
+import React from 'react';
 import styles from './EditProfile.module.css'
 import { observer } from 'mobx-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,24 +7,17 @@ import { useDropzone } from 'react-dropzone';
 import useForm from 'react-hook-form';
 import { uploadPhoto } from '../../services/api';
 
-
 function EditProfileComponent(props) {
   const { register, handleSubmit, errors } = useForm();
-  const [ file, setFile] = useState(null);
 
   function onDrop(files) {
-    console.log(files[0]);
     uploadPhoto(files[0]).then(data => {
-      console.log(JSON.stringify(data))
-      let formatedData = JSON.stringify(data)
-      console.log(formatedData.imageUrl)
-     setFile(formatedData.imageUrl)
-     console.log(file);
-  })
+      let formatedData = (data)
+      props.setFile(formatedData.imageUrl)
+    })
   }
-
   const { getRootProps, getInputProps, isDragActive } = useDropzone({onDrop});
-  
+
   return (
      <div>
        <button className = {styles.icon} 
@@ -33,7 +26,7 @@ function EditProfileComponent(props) {
         </button>
         <div class = {styles.pictureBox}>
           <div className={styles.inner1}>
-                    <img src={require('../../img/preuzmi.png')} 
+                    <img src={props.file} 
                          height="150" 
                          alt="Upload"
                          width="150 " />
@@ -49,7 +42,7 @@ function EditProfileComponent(props) {
         
         <div className = {styles.wrapper}>
           <form onSubmit = {handleSubmit(props.update)}>
-            <input name="user.email" 
+            <input name="email" 
                    type="email" 
                    placeholder="Email"
                    ref = {register({
@@ -57,8 +50,8 @@ function EditProfileComponent(props) {
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                       message: 'This is not an email format!'},})}/>
-            <span className={styles.error}>{errors['user.email'] && errors['user.email'].message}</span>
-            <input name = "user.first_name"
+            <span className={styles.error}>{errors['email'] && errors['email'].message}</span>
+            <input name = "first_name"
                    placeholder = "First name"
                    type = "text"
                    ref = {register({
@@ -66,8 +59,8 @@ function EditProfileComponent(props) {
                     pattern: {
                       value: /^[A-Za-z]+$/,
                       message: 'This is not valid name!'} })}/>
-            <span className={styles.error}>{errors['user.first_name'] && errors['user.first_name'].message}</span>
-            <input name = "user.last_name"
+            <span className={styles.error}>{errors['first_name'] && errors['first_name'].message}</span>
+            <input name = "last_name"
                    placeholder = "Last name"
                    type = "text"
                    ref = {register({
@@ -75,28 +68,28 @@ function EditProfileComponent(props) {
                     pattern: {
                       value: /^[A-Za-z]+$/,
                       message: 'This is not valid last name!'}})}/>
-            <span className={styles.error}>{errors['user.last_name'] && errors['user.last_name'].message}</span>
-            <input name=""
+            <span className={styles.error}>{errors['last_name'] && errors['last_name'].message}</span>
+            <input name="old_password"
                    type="password" 
                    placeholder="Old password"
                    ref={register({
                     required: 'Old password is required!',
                     })}/> 
-            <span className={styles.error}>{errors['user.password'] && errors['user.password'].message}</span>
-            <input name="user.password" 
+            <span className={styles.error}>{errors['password'] && errors['password'].message}</span>
+            <input name="new_password" 
                    type="password" 
                    placeholder="New password"
                    ref={register({
                     required: 'New password is required!',
                     })}/> 
-            <span className={styles.error}>{errors['user.password'] && errors['user.password'].message}</span>
-            <input name="user.password" 
+            <span className={styles.error}>{errors['password'] && errors['password'].message}</span>
+            <input name="confirm_password" 
                    type="password" 
                    placeholder="Confirm password"
                    ref={register({
                     required: 'Confirm password is required!',
                     })}/> 
-            <span className={styles.error}>{errors['user.password'] && errors['user.password'].message}</span>
+            <span className={styles.error}>{errors['password'] && errors['password'].message}</span>
             <button type="submit"
                     className={styles.btn}>
                     Save changes
@@ -104,7 +97,6 @@ function EditProfileComponent(props) {
           </form>
         </div>
       </div>
-
   );
 };
 

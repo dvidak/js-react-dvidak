@@ -8,7 +8,7 @@ function UserDetailsComponent(props) {
   return (
     <div className={styles.userArea}>
       <div className={styles.picutreBox}>
-                    <img src={props.userData.img} 
+                    <img src={props.userData.image_url} 
                          height="200" 
                          alt="nema slike"
                          width="300" />

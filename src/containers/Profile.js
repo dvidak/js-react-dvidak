@@ -4,6 +4,8 @@ import { UserDetails } from '../components/UserDetails/UserDetails';
 import { HeaderLoggedIn } from '../components/Header/HeaderLoggedIn';
 import { UserBookings } from '../components/UserBookings/UserBookings';
 import { getUser  } from '../services/user';
+import { logout } from '../services/auth';
+
 
 
 
@@ -25,7 +27,7 @@ function ProfilePageContainer(props) {
 
   return (
     <div>
-        <HeaderLoggedIn/>
+        <HeaderLoggedIn logout={logout}/>
         <UserDetails openModal = {openModal} userData = {userData}/>
         <UserBookings/>
     </div>
