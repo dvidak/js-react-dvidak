@@ -4,10 +4,20 @@ import styles from './UserModal.module.css';
 import { EditProfile } from '../../components/EditProfile/EditProfile';
 import { editUser } from '../../services/user';
 import { login } from '../../services/auth';
+import { getUser  } from '../../services/user';
+
 
 
 function UserModalComponent(props) {
   const [ file, setFile] = React.useState('');
+  const [ userData, setUserData ] =React.useState({});
+
+  React.useEffect( () => {
+    let id = localStorage.getItem('id');
+    getUser(id).then( (u) => {
+      setUserData(u)
+    });
+  })
 
   
   function closeModal() {
@@ -52,7 +62,8 @@ function UserModalComponent(props) {
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modalContent}>
-        <EditProfile onClick={closeModal} 
+        <EditProfile userData = {userData} 
+                     onClick={closeModal} 
                      update ={update}
                      file = {file}
                      setFile = {setFile} />

@@ -1,7 +1,43 @@
 .icon{
-    margin-left: 90%;
+    margin-left: 93%;
     background: white;
     border: none;
+}
+
+.centerPic{
+    display: block;
+    width: 110px;
+    margin-left: 10%;
+}
+
+h3 {
+    text-align: center;
+    color:  #175fdb;
+}
+
+img{
+    align-self: center;
+}
+
+input, label {
+    display:block;
+}
+
+label {
+    color:#175fdb;
+    margin: 5px;
+    font-weight: bold;
+    
+}
+
+.leftCol{
+    float:left;
+    margin: 5%;
+}
+
+.rightCol{
+    float:left;
+    margin: 5%;
 }
 
 .pictureBox{
@@ -16,12 +52,8 @@ p{
     color: blue;
 }
 
-div.wrapper {
-    display: grid;
-}
-
 .btn {
-    margin-left: 15%;
+    margin-left: 25%;
     background-color:#175fdb;
     border: 1px solid #175fdb;
     border-radius: 3px;
