@@ -8,9 +8,9 @@ function UserDetailsComponent(props) {
   return (
     <div className={styles.userArea}>
       <div className={styles.picutreBox}>
-                    <img src={require('../../img/preuzmi.png')} 
+                    <img src={props.userData.img} 
                          height="200" 
-                         alt=""
+                         alt="nema slike"
                          width="300" />
       </div>
       <div className={styles.contextBox}>

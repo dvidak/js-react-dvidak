@@ -1,19 +1,11 @@
-import { post , get } from '../services/api';
+import { put , get } from '../services/api';
 
 export function getUser(id) {
     return get(`users/${id}`)
           .then((response) => response.user)
   }
 
-
-export function editUser(data){
-    console.log(data);
-    return post(`users/${data.id}`,data)
-        .then((response) => {
-            if(response.user){
-                alert('Success! User updated!')
-            }else{
-                alert('Error!')
-            }
-        }).catch(error => console.error('Error:', error));
-}
+export function editUser(data,id) {
+    return put(`users/${id}`,data)
+          .then((response) => response.user)
+  }
