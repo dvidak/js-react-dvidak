@@ -8,7 +8,7 @@ export function getUser(id) {
 
 export function editUser(data){
     console.log(data);
-    return post(`users/${id}`,data)
+    return post(`users/${data.id}`,data)
         .then((response) => {
             if(response.user){
                 alert('Success! User updated!')

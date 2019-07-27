@@ -6,6 +6,7 @@ export function login(data) {
         .then((response) => {
             if(response.session){
                 localStorage.setItem('token', response.session.token);
+                localStorage.setItem('id', response.session.user.id);
                 let str = response.session.user.email;
                 localStorage.setItem('username', str.substring(0, str.lastIndexOf('@')));
                 return (response)   
