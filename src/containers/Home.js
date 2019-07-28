@@ -32,7 +32,7 @@ function HomePageContainer() {
     <div>
         {localStorage.getItem('token') ? <HeaderLoggedIn logout = {logout} /> : <Header/> }
         <SearchBar flightFilter = {appState.flightFilter} onFilterChange = {onFilterChange}/>
-        {localStorage.getItem('flightFilter') !== '' ? <Flights flights = {filtered}/> : <Flights flights = {appState.flights}/>}
+        <Flights flights = {filtered}/>
     </div>
   );
 };

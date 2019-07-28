@@ -1,0 +1,24 @@
+.bookingBlock {
+    width: 12rem;
+    height: 13rem;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.bookingInfo{
+    margin:0px;
+}
+.blue{
+    color: #175fdb;
+}
+
+.grey{
+    color: #b8bcc2;
+}
+
+.text{
+    font-size: 12px;
+    margin-left: 3rem;
+}

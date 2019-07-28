@@ -1,5 +1,22 @@
-.bookingsBox {
-    margin: 2rem;
+.main{
     width: 95%;
-    background-color: red;
+    background-color: white;
+    border-radius : 10px;
+    margin: auto auto;
+}
+
+.title{
+    color: black;
+    margin-left: 20px;
+}
+
+.bookingsBox {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.title{
+    color: black;
+    margin: 5px;
+    text-align: left;
 }

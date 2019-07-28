@@ -2,8 +2,9 @@
   width:60%;
   margin: 2rem 1rem 1rem 2rem;
   display: grid;
-  background-color: grey;
+  border-radius: 10px;
   grid-template-columns: auto auto auto;
+  background-color: white;
 }
 
 .picutreBox{
@@ -20,6 +21,12 @@
     border: 1px solid #175fdb;
     border-radius: 3px;
     width: 5rem;
+    margin: 2rem;
     padding: 8px;
     color:white;
+}
+
+.blueTxt{
+    color: #175fdb;
+    text-align: left;
 }

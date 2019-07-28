@@ -10,7 +10,7 @@ import { getUser  } from '../../services/user';
 
 function UserModalComponent(props) {
   const [ file, setFile] = React.useState('');
-  const [ userData, setUserData ] =React.useState({});
+  const [ userData, setUserData ] = React.useState({});
 
   React.useEffect( () => {
     let id = localStorage.getItem('id');

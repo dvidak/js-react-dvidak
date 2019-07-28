@@ -5,9 +5,7 @@ import { HeaderLoggedIn } from '../components/Header/HeaderLoggedIn';
 import { UserBookings } from '../components/UserBookings/UserBookings';
 import { getUser  } from '../services/user';
 import { logout } from '../services/auth';
-
-
-
+import styles from './containers.module.css'
 
 function ProfilePageContainer(props) {
   const [ userData, setUserData ] = useState({});
@@ -26,10 +24,10 @@ function ProfilePageContainer(props) {
 
 
   return (
-    <div>
+    <div className={styles.main}>
         <HeaderLoggedIn logout={logout}/>
         <UserDetails openModal = {openModal} userData = {userData}/>
-        <UserBookings/>
+        <UserBookings bookings = {userData.bookings}/>
     </div>
   );
 };

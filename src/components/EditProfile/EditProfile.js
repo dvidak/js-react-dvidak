@@ -14,9 +14,13 @@ function EditProfileComponent(props) {
     uploadPhoto(files[0]).then(data => {
       let formatedData = (data)
       props.setFile(formatedData.imageUrl)
+      return props.file;
     })
   }
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({onDrop});
+
+  let pic = props.file === '' ? props.userData.image_url : props.file; 
 
   return (
      <div>
@@ -26,16 +30,12 @@ function EditProfileComponent(props) {
         </button>
         <h2> Edit profile </h2>
         <div class = {styles.pictureBox}>
-          { props.fie ? 
           <div className={styles.inner1}>
-                    <img src={props.file} 
+                    <img src={pic} 
                          height="100" 
                          alt="None"
                          width="100 " />
-          </div> :
-          <div className={styles.inner1}>
-          <img className = {styles.centerPic} src={props.userData.image_url} />
-          </div> }
+          </div> 
           <div {...getRootProps()}>
             <input className = {styles.inner1Txt} {...getInputProps()} />
                 {isDragActive ?

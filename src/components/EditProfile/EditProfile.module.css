@@ -45,15 +45,11 @@ label {
 }
 
 .inner1{
-    margin-left: 30%;
-}
-
-p{
-    color: blue;
+    margin-left: 40%;
 }
 
 .btn {
-    margin-left: 25%;
+    margin-left: 30%;
     background-color:#175fdb;
     border: 1px solid #175fdb;
     border-radius: 3px;

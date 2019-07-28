@@ -14,8 +14,8 @@ function UserDetailsComponent(props) {
                          width="300" />
       </div>
       <div className={styles.contextBox}>
-        <h3>{props.userData.first_name} {props.userData.last_name}</h3>
-        <p>{props.userData.email}</p>
+        <h3 className = {styles.blueTxt}>{props.userData.first_name} {props.userData.last_name}</h3>
+        <p className = {styles.blueTxt} >{props.userData.email}</p>
         <button className={styles.btn} onClick={props.openModal}>Edit</button>
       </div>
  </div>

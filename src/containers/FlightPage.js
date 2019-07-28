@@ -7,7 +7,6 @@ import { getFlight } from '../services/flights';
 import { logout } from '../services/auth';
 
 
-
 function FlightPageContainer(props) {
   const [ flight, setFlight ] = useState({});
 
