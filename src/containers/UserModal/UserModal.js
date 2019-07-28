@@ -5,6 +5,8 @@ import { EditProfile } from '../../components/EditProfile/EditProfile';
 import { editUser } from '../../services/user';
 import { login } from '../../services/auth';
 import { getUser  } from '../../services/user';
+import { uploadPhoto } from '../../services/api';
+
 
 
 
@@ -66,7 +68,8 @@ function UserModalComponent(props) {
                      onClick={closeModal} 
                      update ={update}
                      file = {file}
-                     setFile = {setFile} />
+                     setFile = {setFile}
+                     uploadPhoto = {uploadPhoto} />
       </div>
     </div>
   ); 

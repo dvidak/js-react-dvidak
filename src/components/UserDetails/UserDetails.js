@@ -3,7 +3,6 @@ import { observer } from 'mobx-react';
 import styles from './UserDetails.module.css'
 
 
-
 function UserDetailsComponent(props) {
   return (
     <div className={styles.userArea}>

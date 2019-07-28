@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react';
-import { HeaderLoggedIn } from '../components/Header/HeaderLoggedIn';
 import { Header } from '../components/Header/Header';
 import { Flight } from '../components/Flight/Flight';
 import { observer } from 'mobx-react';
@@ -22,7 +21,7 @@ function FlightPageContainer(props) {
 
   return (
     <div>
-      {localStorage.getItem('token') ? <HeaderLoggedIn logout={logout}/> : <Header/> }
+      <Header logout={logout}/> 
       <Flight flight = {flight} 
               openModal = {openModal}/>
     </div>

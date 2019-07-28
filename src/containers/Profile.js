@@ -1,7 +1,7 @@
 import React , {useState , useEffect} from 'react';
 import { observer } from 'mobx-react';
 import { UserDetails } from '../components/UserDetails/UserDetails';
-import { HeaderLoggedIn } from '../components/Header/HeaderLoggedIn';
+import { Header } from '../components/Header/Header';
 import { UserBookings } from '../components/UserBookings/UserBookings';
 import { getUser  } from '../services/user';
 import { logout } from '../services/auth';
@@ -25,7 +25,7 @@ function ProfilePageContainer(props) {
 
   return (
     <div className={styles.main}>
-        <HeaderLoggedIn logout={logout}/>
+        <Header logout={logout}/>
         <UserDetails openModal = {openModal} userData = {userData}/>
         <UserBookings bookings = {userData.bookings}/>
     </div>

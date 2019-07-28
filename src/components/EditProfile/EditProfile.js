@@ -5,13 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { useDropzone } from 'react-dropzone';
 import useForm from 'react-hook-form';
-import { uploadPhoto } from '../../services/api';
 
 function EditProfileComponent(props) {
   const { register, handleSubmit, errors } = useForm();
 
   function onDrop(files) {
-    uploadPhoto(files[0]).then(data => {
+    props.uploadPhoto(files[0]).then(data => {
       let formatedData = (data)
       props.setFile(formatedData.imageUrl)
       return props.file;
@@ -32,9 +31,9 @@ function EditProfileComponent(props) {
         <div class = {styles.pictureBox}>
           <div className={styles.inner1}>
                     <img src={pic} 
-                         height="100" 
+                         height="60" 
                          alt="None"
-                         width="100 " />
+                         width="60" />
           </div> 
           <div {...getRootProps()}>
             <input className = {styles.inner1Txt} {...getInputProps()} />
@@ -76,7 +75,7 @@ function EditProfileComponent(props) {
                    ref={register({
                     required: 'New password is required!',
                     })}/> 
-            <span className={styles.error}>{errors['password'] && errors['password'].message}</span>
+            <span className={styles.error}>{errors['new_password'] && errors['new_password'].message}</span>
             </div>
             <div className = {styles.rightCol}>
             <label for="first_name">First name</label>
@@ -97,7 +96,7 @@ function EditProfileComponent(props) {
                    ref={register({
                     required: 'Old password is required!',
                     })}/> 
-            <span className={styles.error}>{errors['password'] && errors['password'].message}</span>
+            <span className={styles.error}>{errors['old_password'] && errors['old_password'].message}</span>
         
             <label for="confirm_password">Confirm password</label>
             <input name="confirm_password" 
@@ -106,14 +105,9 @@ function EditProfileComponent(props) {
                    ref={register({
                     required: 'Confirm password is required!',
                     })}/> 
-            <span className={styles.error}>{errors['password'] && errors['password'].message}</span>
-            
+            <span className={styles.error}>{errors['confirm_password'] && errors['confirm_password'].message}</span>
             </div>
 
-
-            
-           
-           
             <button type="submit"
                     className={styles.btn}>
                     Save changes
