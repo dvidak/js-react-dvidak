@@ -8,12 +8,13 @@ import { logout } from '../services/auth';
 
 function FlightPageContainer(props) {
   const [ flight, setFlight ] = useState({});
+  let flightId = props.match.params.id
 
   useEffect( () => {
-    getFlight(props.match.params.id).then( (f) => {
+    getFlight(flightId).then( (f) => {
       setFlight(f)
     });
-  })
+  },[flightId])
 
   function openModal() {
     props.history.push(`/flight/${props.match.params.id}/modal`);

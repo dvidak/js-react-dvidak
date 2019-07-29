@@ -9,13 +9,14 @@ import styles from './containers.module.css'
 
 function ProfilePageContainer(props) {
   const [ userData, setUserData ] = useState({});
+  let id = localStorage.getItem('id');
 
   useEffect( () => {
-    let id = localStorage.getItem('id');
+    console.log("render")
     getUser(id).then( (u) => {
       setUserData(u)
     });
-  })
+  },[id])
 
   
   function openModal() {

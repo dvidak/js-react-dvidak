@@ -8,7 +8,9 @@ import { login } from '../services/auth';
 function LoginPageContainer(props) {
   function onLogin(data) {
     login(data).then(res => {
-      window.location.reload();
+      if(res.session.session){
+        window.location.reload();
+      }
     });
   }
 

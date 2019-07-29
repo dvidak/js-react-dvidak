@@ -44,7 +44,7 @@ function LoginFormComponent(props) {
             </button>
             <div className={styles.text}>
               <p> Don't have an account?</p>
-              <p className><a className={styles.blueTxt} 
+              <p><a className={styles.blueTxt} 
                     href='/register'> 
                     Register here 
               </a></p>
