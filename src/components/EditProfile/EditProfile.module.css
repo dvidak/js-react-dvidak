@@ -1,0 +1,66 @@
+.icon{
+    margin-left: 93%;
+    background: white;
+    border: none;
+}
+
+.centerPic{
+    display: block;
+    width: 110px;
+    margin-left: 10%;
+}
+
+h3 {
+    text-align: center;
+    color:  #175fdb;
+}
+
+img{
+    align-self: center;
+}
+
+input, label {
+    display:block;
+}
+
+label {
+    color:#175fdb;
+    margin: 5px;
+    font-weight: bold;
+    
+}
+
+.leftCol{
+    float:left;
+    margin: 5%;
+}
+
+.rightCol{
+    float:left;
+    margin: 5%;
+}
+
+.pictureBox{
+    border: 2px blue;
+}
+
+.inner1{
+    margin-left: 40%;
+}
+
+.btn {
+    margin-left: 30%;
+    background-color:#175fdb;
+    border: 1px solid #175fdb;
+    border-radius: 3px;
+    padding: 8px;
+    color:white;
+    width: 40%;
+}
+
+.error{
+    color: red;
+    text-align: center;
+    margin : 0px;
+    font-size: 14px;
+}

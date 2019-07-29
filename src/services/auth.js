@@ -1,11 +1,12 @@
 import { postAuth } from '../services/api';
 
 export function login(data) {
-    console.log(data);
+    console.log((data));
     return postAuth('session',data)
         .then((response) => {
             if(response.session){
                 localStorage.setItem('token', response.session.token);
+                localStorage.setItem('id', response.session.user.id);
                 let str = response.session.user.email;
                 localStorage.setItem('username', str.substring(0, str.lastIndexOf('@')));
                 return (response)   

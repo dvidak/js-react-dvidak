@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react';
-import { HeaderLoggedIn } from '../components/Header/HeaderLoggedIn';
 import { Header } from '../components/Header/Header';
 import { Flight } from '../components/Flight/Flight';
 import { observer } from 'mobx-react';
@@ -7,15 +6,15 @@ import { getFlight } from '../services/flights';
 import { logout } from '../services/auth';
 
 
-
 function FlightPageContainer(props) {
   const [ flight, setFlight ] = useState({});
+  let flightId = props.match.params.id
 
   useEffect( () => {
-    getFlight(props.match.params.id).then( (f) => {
+    getFlight(flightId).then( (f) => {
       setFlight(f)
     });
-  })
+  },[flightId])
 
   function openModal() {
     props.history.push(`/flight/${props.match.params.id}/modal`);
@@ -23,7 +22,7 @@ function FlightPageContainer(props) {
 
   return (
     <div>
-      {localStorage.getItem('token') ? <HeaderLoggedIn logout={logout}/> : <Header/> }
+      <Header logout={logout}/> 
       <Flight flight = {flight} 
               openModal = {openModal}/>
     </div>

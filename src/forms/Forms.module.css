@@ -45,6 +45,15 @@ a:link {
     font-size: medium;
 }
 
+.checkbox input,
+.checkbox label {
+  display: inline-block;
+  margin-bottom: 0; 
+  vertical-align: middle; 
+  margin-left: 10px;
+}
+
+
 .error{
     color: red;
     text-align: center;

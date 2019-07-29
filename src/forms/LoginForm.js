@@ -30,12 +30,13 @@ function LoginFormComponent(props) {
                     required: 'Password is required!',
                     })}/> 
             <p className={styles.error}>{errors['session.password'] && errors['session.password'].message}</p>  
-            <div className={styles.text}>
+            <div className={styles.checkbox}>
+            <label>
               <input type="checkbox"
-                     id={styles.rememberMe} 
-                     onChange = {onChange}
-                     name="rememberMe"/>
-              <label>Remember me</label>
+                     className={styles.rememberMe} 
+                     id = "rememberMe"
+                     onChange = {onChange}/>Remember me
+              </label>
             </div>
             <button type="submit"
                     className={styles.btn}>

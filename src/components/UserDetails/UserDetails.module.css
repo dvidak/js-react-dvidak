@@ -1,0 +1,32 @@
+.userArea {
+  width:60%;
+  margin: 2rem 1rem 1rem 2rem;
+  display: grid;
+  border-radius: 10px;
+  grid-template-columns: auto auto auto;
+  background-color: white;
+}
+
+.picutreBox{
+    margin: 1rem;
+
+}
+
+.contextBox{
+    margin: 2rem;
+}
+
+.btn {
+    background-color:#175fdb;
+    border: 1px solid #175fdb;
+    border-radius: 3px;
+    width: 5rem;
+    margin: 2rem;
+    padding: 8px;
+    color:white;
+}
+
+.blueTxt{
+    color: #175fdb;
+    text-align: left;
+}
