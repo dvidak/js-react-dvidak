@@ -12,7 +12,7 @@ function UserBookingsComponent({bookings}) {
      <div className = {styles.bookingsBox}>
       {bookings && bookings.slice(0,4).map( booking => {
               return (
-                <UserBookingBox booking = {booking} id = {booking.id}/>
+                <UserBookingBox booking = {booking} key = {booking.id}/>
               );
             })}
         </div>
