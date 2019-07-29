@@ -13,13 +13,13 @@ import { uploadPhoto } from '../../services/api';
 function UserModalComponent(props) {
   const [ file, setFile] = React.useState('');
   const [ userData, setUserData ] = React.useState({});
+  let id = localStorage.getItem('id');
 
   React.useEffect( () => {
-    let id = localStorage.getItem('id');
     getUser(id).then( (u) => {
       setUserData(u)
     });
-  })
+  }, [id])
 
   
   function closeModal() {
@@ -33,8 +33,7 @@ function UserModalComponent(props) {
       password: data.old_password
       }
     }
-    let id = localStorage.getItem('id');
-  
+      
     const user = {
       email : data.email,
       first_name : data.first_name,
@@ -43,23 +42,21 @@ function UserModalComponent(props) {
       image_url : file
     }
     
-    login(session).then( (response) => {
-      if(response.session.user){
-        if(data.new_password !== data.confirm_password){
-          alert ("New and confirm password does not match ")
+    if (data.new_password !== data.confirm_password){
+      alert ("New and confirm password does not match ")
+    } else {
+      login(session).then( (response) => {
+        if(response.session.user){
+            editUser(user,id).then( () =>{
+              alert ("Changes saved!")
+              closeModal();
+            })
         }else{
-          editUser(user,id).then( () =>{
-            alert ("Changes saved!")
-            closeModal();
-          })
+          alert("Old password invalid")
         }
-      }else{
-        alert("Old password invalid")
-      }
-    });
-
-
+      });
   }
+}
 
   return (
     <div className={styles.modalContainer}>

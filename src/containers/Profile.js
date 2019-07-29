@@ -12,7 +12,6 @@ function ProfilePageContainer(props) {
   let id = localStorage.getItem('id');
 
   useEffect( () => {
-    console.log("render")
     getUser(id).then( (u) => {
       setUserData(u)
     });

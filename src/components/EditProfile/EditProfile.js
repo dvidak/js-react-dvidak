@@ -28,7 +28,7 @@ function EditProfileComponent(props) {
                   <FontAwesomeIcon  icon = {faWindowClose}/>
         </button>
         <h2> Edit profile </h2>
-        <div class = {styles.pictureBox}>
+        <div className = {styles.pictureBox}>
           <div className={styles.inner1}>
                     <img src={pic} 
                          height="60" 
@@ -46,7 +46,7 @@ function EditProfileComponent(props) {
         <div className = {styles.wrapper}>
           <form onSubmit = {handleSubmit(props.update)}>
             <div className = {styles.leftCol}>
-            <label for="email">Username</label>
+            <label htmlFor="email">Username</label>
             <input name="email" 
                    type="email" 
                    defaultValue = {props.userData.email}
@@ -57,7 +57,7 @@ function EditProfileComponent(props) {
                       message: 'This is not an email format!'},})}/>
             <span className={styles.error}>{errors['email'] && errors['email'].message}</span>
 
-            <label for="last_name">Last name</label>
+            <label htmlFor="last_name">Last name</label>
             <input name = "last_name"
                    defaultValue = {props.userData.last_name}
                    placeholder = "Last name"
@@ -68,7 +68,7 @@ function EditProfileComponent(props) {
                       value: /^[A-Za-z]+$/,
                       message: 'This is not valid last name!'}})}/>
             <span className={styles.error}>{errors['last_name'] && errors['last_name'].message}</span>
-            <label for="new_password">New password</label>
+            <label htmlFor="new_password">New password</label>
             <input name="new_password" 
                    type="password" 
                    placeholder="*******"
@@ -78,7 +78,7 @@ function EditProfileComponent(props) {
             <span className={styles.error}>{errors['new_password'] && errors['new_password'].message}</span>
             </div>
             <div className = {styles.rightCol}>
-            <label for="first_name">First name</label>
+            <label htmlFor="first_name">First name</label>
             <input name = "first_name"
                    defaultValue = {props.userData.first_name}
                    placeholder = "First name"
@@ -89,7 +89,7 @@ function EditProfileComponent(props) {
                       value: /^[A-Za-z]+$/,
                       message: 'This is not valid name!'} })}/>
             <span className={styles.error}>{errors['first_name'] && errors['first_name'].message}</span>
-            <label for="old_password">Old password</label>
+            <label htmlFor="old_password">Old password</label>
             <input name="old_password"
                    type="password" 
                    placeholder="*******"
@@ -98,7 +98,7 @@ function EditProfileComponent(props) {
                     })}/> 
             <span className={styles.error}>{errors['old_password'] && errors['old_password'].message}</span>
         
-            <label for="confirm_password">Confirm password</label>
+            <label htmlFor="confirm_password">Confirm password</label>
             <input name="confirm_password" 
                    type="password" 
                    placeholder="*******"
