@@ -8,8 +8,10 @@ import { login } from '../services/auth';
 function LoginPageContainer(props) {
   function onLogin(data) {
     login(data).then(res => {
-      if(res.session.session){
-        window.location.reload();
+      if(res.session){
+        console.log(props.history);
+        console.log(props.location.pathname);
+        props.history.go ('/profile');
       }
     });
   }
