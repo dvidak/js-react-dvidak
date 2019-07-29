@@ -1,12 +1,10 @@
-import React from 'react';
+import React  from 'react';
 import { useAsync } from 'react-use';
-import { Header } from '../components/Header/Header';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { Flights } from '../components/Flights/Flights';
 import { observer } from 'mobx-react';
 import { loadFlights } from '../services/flights';
 import { AppContext } from '../state/AppContext';
-import { logout } from '../services/auth';
 
 
 function HomePageContainer() {
@@ -29,7 +27,6 @@ function HomePageContainer() {
 
   return (
     <div>
-        <Header logout = {logout} /> 
         <SearchBar flightFilter = {appState.flightFilter} onFilterChange = {onFilterChange}/>
         <Flights flights = {filtered}/>
     </div>

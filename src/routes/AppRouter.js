@@ -7,10 +7,12 @@ import { Profile } from '../containers/Profile';
 import { FlightPage } from '../containers/FlightPage';
 import { BookFlightModal} from '../containers/BookFlightModal/BookFlightModal'
 import { UserModal } from '../containers/UserModal/UserModal';
+import { Layout} from '../style/layout';
 
 export function AppRouter() {
   return (
     <Router>
+      <Layout>
       <Route path='/login' component={Login}/>
       <Route path='/register' component={Register}/>
       <PrivateRoute exact path='/' component={Home}/>
@@ -18,6 +20,7 @@ export function AppRouter() {
       <PrivateRoute exact path='/flight/:id/modal' component={BookFlightModal} />
       <PrivateRoute path='/profile' component={Profile}/>
       <PrivateRoute path='/profile/modal' component={UserModal}/>
+      </Layout>
     </Router>
   );
 }

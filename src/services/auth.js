@@ -11,8 +11,7 @@ export function login(data) {
                 localStorage.setItem('username', str.substring(0, str.lastIndexOf('@')));
                 return (response)   
             }else{
-                console.log(response);
-                alert('Error! Please try again!')
+                return (response)   
             }        
         }).catch(error =>{ 
                 alert('Error!');
