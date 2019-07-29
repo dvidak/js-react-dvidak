@@ -1,8 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import styles from './BookFlightModal.module.css';
-import { Booking } from '../../components/Booking/Booking';
-import { bookIt } from '../../services/booking';
+import styles from '../style/containers.module.css'
+import { Booking } from '../components/Booking/Booking';
+import { bookIt } from '../services/booking';
 
 
 function BookFlightModalComponent(props) {
@@ -20,7 +20,7 @@ function BookFlightModalComponent(props) {
 
   return (
     <div className={styles.modalContainer}>
-      <div className={styles.modalContent}>
+      <div className={styles.bookFlightModalContent}>
         <Booking bookFlight={bookFlight}
                  onClick={closeModal} />
       </div>
