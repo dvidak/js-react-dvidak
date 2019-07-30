@@ -4,8 +4,6 @@ import styles from './Booking.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { observer } from 'mobx-react';
-import { stringLiteralTypeAnnotation } from '@babel/types';
-
 
 function BookingComponent(props) {
   const { register, handleSubmit, errors } = useForm();

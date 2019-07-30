@@ -18,8 +18,10 @@ function HomePageContainer() {
                 .filter((flight) => flight.name
                                     .toLowerCase()
                                     .includes(appState.flightFilter.toLowerCase()
-                        ));
+              ))
   }
+
+  //moment(flight.flys_at).format('YYYY-MM-DD') === appState.dateFilter)
 
   const filtered = React.useMemo(filteredFlights, [appState.flightFilter, appState.flights, appState.flightFilter])
 
@@ -28,8 +30,7 @@ function HomePageContainer() {
   }
 
   function handleDateChange(picked) {
-    appState.dateFilter = moment(picked).format('YYYY-MM-DD')
-    console.log(appState.dateFilter);
+    appState.dateFilter = picked;
   }
 
   return (

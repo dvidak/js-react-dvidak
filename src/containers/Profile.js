@@ -7,6 +7,7 @@ import styles from '../style/containers.module.css'
 
 function ProfilePageContainer(props) {
   const [ userData, setUserData ] = useState({});
+  const [ seeAll, setSeeAll] = React.useState(false)
   let id = localStorage.getItem('id');
 
   useEffect( () => {
@@ -20,11 +21,18 @@ function ProfilePageContainer(props) {
     props.history.push('/profile/modal');
   }
 
+  function onChange(){
+    setSeeAll(!seeAll);
+  }
+
 
   return (
     <div className={styles.main}>
         <UserDetails openModal = {openModal} userData = {userData}/>
-        <UserBookings bookings = {userData.bookings}/>
+        <UserBookings bookings = {userData.bookings}
+                      seeAll = {seeAll}
+                      onChange = {onChange}
+                      />
     </div>
   );
 };
