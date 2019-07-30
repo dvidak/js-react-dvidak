@@ -18,7 +18,7 @@ function LoginPageContainer(props) {
 
   return (
     localStorage.getItem('token') ? 
-    <Redirect to="/profile" /> : 
+    <Redirect to="/" /> : 
     <LoginForm onLogin = {onLogin}/>
   );
 };
