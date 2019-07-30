@@ -13,7 +13,7 @@ function ProfilePageContainer(props) {
     getUser(id).then( (u) => {
       setUserData(u)
     });
-  })
+  }, [id])
 
   
   function openModal() {

@@ -4,6 +4,7 @@ import styles from './Booking.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { observer } from 'mobx-react';
+import { stringLiteralTypeAnnotation } from '@babel/types';
 
 
 function BookingComponent(props) {
@@ -17,7 +18,7 @@ function BookingComponent(props) {
           </button>
           <h2> Create booking </h2>
           <div className = {styles.input}>
-            <p><b>Number of passengers</b></p>
+            <p className={styles.label}>Number of passengers</p>
             <input type = "number" 
                    name = "booking.no_of_seats"
                    ref = {register({

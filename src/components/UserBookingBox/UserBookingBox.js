@@ -16,7 +16,7 @@ function UserBookingBoxComponent({booking}) {
         <h5 className = {styles.bookingInfo}> 
             <span className = {styles.blue}>{booking.flight_name}  </span>
             <span className = {styles.grey}> | {booking.company_name}</span></h5>
-        <span className = {styles.text}>{moment(booking.flys_at).format('DD:MM:YYYY HH:mm')}</span>
+        <p className = {styles.text}>{moment(booking.flys_at).format('DD. MMMM YYYY | HH:mm')}</p>
 
 
     </div>

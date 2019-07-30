@@ -16,9 +16,15 @@
 
 .grey{
     color: #b8bcc2;
+
 }
 
 .text{
     font-size: 12px;
     margin-left: 3rem;
+}
+
+p{
+    margin-top: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
