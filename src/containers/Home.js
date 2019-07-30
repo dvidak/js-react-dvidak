@@ -5,9 +5,6 @@ import { Flights } from '../components/Flights/Flights';
 import { observer } from 'mobx-react';
 import { loadFlights } from '../services/flights';
 import { AppContext } from '../state/AppContext';
-import moment from 'moment'
-
-
 
 function HomePageContainer() {
   const { appState } = React.useContext(AppContext);  
@@ -18,11 +15,8 @@ function HomePageContainer() {
     return appState.flights
                 .filter((flight) => flight.name
                                     .toLowerCase()
-                                    .includes(appState.flightFilter.toLowerCase())
-                        ||
-                 moment (flight.flys_at).format('YYYY-MM-DD') === moment(date).format('YYYY-MM-DD')
-                )
-  }
+                                    .includes(appState.flightFilter.toLowerCase())       
+  )}
 
 
   const filtered = React.useMemo(filteredFlights, [appState.flightFilter, appState.flights, date])
