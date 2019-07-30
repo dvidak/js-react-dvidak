@@ -1,20 +1,20 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import styles from './SearchBar.module.css'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 function SearchBarComponent(props) {     
   return (
        <div className={styles.search}>
        <b><p className={styles.title}>Find best flight for you and your friends!</p></b>
               <div className={styles.searchBar}>
-                     <input className={styles.searchElement} 
-                            type="date" 
-                            id="start"
-                            name="trip-start"
-                            value="2019-07-22"
-                            min="2019-01-01"
-                            max="2019-12-31">
-                     </input>
+                     <DatePicker
+                            className={styles.searchDate}
+                            selected={props.date}
+                            onChange={props.handleDateChange}
+                     />
                      <input className={styles.searchElement}   
                             type="text" 
                             value={props.flightFilter}

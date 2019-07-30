@@ -17,6 +17,10 @@
     width:25%;
 }
 
+.searchDate{
+    padding: 20px;
+}
+
 #blueText{
     background-color: #175fdb;
     color: white;

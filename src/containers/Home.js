@@ -5,6 +5,8 @@ import { Flights } from '../components/Flights/Flights';
 import { observer } from 'mobx-react';
 import { loadFlights } from '../services/flights';
 import { AppContext } from '../state/AppContext';
+import moment from 'moment'
+
 
 
 function HomePageContainer() {
@@ -19,15 +21,23 @@ function HomePageContainer() {
                         ));
   }
 
-  const filtered = React.useMemo(filteredFlights, [appState.flightFilter, appState.flights])
+  const filtered = React.useMemo(filteredFlights, [appState.flightFilter, appState.flights, appState.flightFilter])
 
   function onFilterChange(e) {
     appState.flightFilter = e.target.value;
   }
 
+  function handleDateChange(picked) {
+    appState.dateFilter = moment(picked).format('YYYY-MM-DD')
+    console.log(appState.dateFilter);
+  }
+
   return (
     <div>
-        <SearchBar flightFilter = {appState.flightFilter} onFilterChange = {onFilterChange}/>
+        <SearchBar flightFilter = {appState.flightFilter} 
+                   onFilterChange = {onFilterChange}
+                   handleDateChange = {handleDateChange}
+                   date = {appState.dateFilter}/>
         <Flights flights = {filtered}/>
     </div>
   );
