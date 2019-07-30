@@ -12,25 +12,27 @@ import moment from 'moment'
 function HomePageContainer() {
   const { appState } = React.useContext(AppContext);  
   useAsync(loadFlights.bind(null, appState));
+  const [date, setDate] = React.useState(new Date());
 
   function filteredFlights() {
     return appState.flights
                 .filter((flight) => flight.name
                                     .toLowerCase()
-                                    .includes(appState.flightFilter.toLowerCase()
-              ))
+                                    .includes(appState.flightFilter.toLowerCase())
+                        ||
+                 moment (flight.flys_at).format('YYYY-MM-DD') === moment(date).format('YYYY-MM-DD')
+                )
   }
 
-  //moment(flight.flys_at).format('YYYY-MM-DD') === appState.dateFilter)
 
-  const filtered = React.useMemo(filteredFlights, [appState.flightFilter, appState.flights, appState.flightFilter])
+  const filtered = React.useMemo(filteredFlights, [appState.flightFilter, appState.flights, date])
 
   function onFilterChange(e) {
     appState.flightFilter = e.target.value;
   }
 
   function handleDateChange(picked) {
-    appState.dateFilter = picked;
+    setDate(picked);
   }
 
   return (
@@ -38,7 +40,7 @@ function HomePageContainer() {
         <SearchBar flightFilter = {appState.flightFilter} 
                    onFilterChange = {onFilterChange}
                    handleDateChange = {handleDateChange}
-                   date = {appState.dateFilter}/>
+                   date = {date}/>
         <Flights flights = {filtered}/>
     </div>
   );
