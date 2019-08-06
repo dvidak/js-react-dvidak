@@ -9,16 +9,16 @@ function LoginPageContainer(props) {
   function onLogin(data) {
     login(data).then(res => {
       if(res.session){
-        console.log(props.history);
-        console.log(props.location.pathname);
         props.history.go ('/profile');
+      }else{
+        alert("Error! Please try again");
       }
     });
   }
 
   return (
     localStorage.getItem('token') ? 
-    <Redirect to="/profile" /> : 
+    <Redirect to="/" /> : 
     <LoginForm onLogin = {onLogin}/>
   );
 };

@@ -1,0 +1,32 @@
+.main{
+    position: absolute;
+    background-color: lightgrey;
+    padding: 0px;
+    margin: 0px;
+    width:100%;
+}
+
+.modalContainer {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: #00000077;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bookFlightModalContent {
+    width: 260px;
+    height: 220px;
+    background-color: white;
+  }
+
+  .userModalContent {
+    width: 450px;
+    height: 510px;
+    background-color: white;
+  }
+  

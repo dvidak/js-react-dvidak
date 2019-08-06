@@ -7,7 +7,8 @@ function HeaderComponent({logout}) {
   return (
     <div className={styles.header}>
       <div className={styles.buttons}>
-        <p className={styles.label}>Hi, {localStorage.getItem('username')}!</p>
+        <a className={styles.label}  href='/profile'>Hi, {localStorage.getItem('username')}!</a>
+
         <button className={styles.authBtn}
                 onClick = {logout}>
                 <a href='/login'>Logut</a>
